@@ -1,8 +1,13 @@
 # NOT SIMPLIFIED IDS
 CountryISOCtxParam
+db1
 DefaultGroup2User
 DefaultModule2Group
 email
+ent1
+ent2
+ent3
+ent4
 Group
 Group2DefaultModule
 Group2DefaultModule_DefaultModule2Group
@@ -20,6 +25,11 @@ moduleID
 moduleName
 moduleOID
 password
+rel1
+rel2
+rel3
+rel4
+rel5
 User
 User2DefaultGroup
 User2DefaultGroup_DefaultGroup2User
@@ -30,3 +40,25 @@ userName
 userOID
 
 # SIMPLIFIED IDS
+ent1#att1=att1
+ent1#att2=att2
+ent2#att3=att3
+ent2#att4=att4
+ent2#att5=att5
+ent2#att6=att6
+ent3#att7=att7
+ent3#att8=att8
+ent4#att10=att10
+ent4#att11=att11
+ent4#att12=att12
+ent4#att9=att9
+rel1#role1=role1
+rel1#role2=role2
+rel2#role3=role3
+rel2#role4=role4
+rel3#role5=role5
+rel3#role6=role6
+rel4#role7=role7
+rel4#role8=role8
+rel5#role10=role10
+rel5#role9=role9
