@@ -172,7 +172,6 @@ sv2#area1#page5#hinu3#ln45=ln45
 sv2#area1#page5#hinu3#su4=su4
 sv2#area1#page5#hinu3=hinu3
 sv2#area1#page5#mssu13=mssu13
-sv2#area1#page5#mssu6#ln6=ln6
 sv2#area1#page5#mssu6=mssu6
 sv2#area1#page5#mssu7=mssu7
 sv2#area1#page5#mssu8=mssu8
