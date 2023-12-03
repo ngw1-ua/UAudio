@@ -30,6 +30,7 @@ rel2
 rel3
 rel4
 rel5
+sv1
 User
 User2DefaultGroup
 User2DefaultGroup_DefaultGroup2User
@@ -62,3 +63,16 @@ rel4#role7=role7
 rel4#role8=role8
 rel5#role10=role10
 rel5#role9=role9
+sv1#page1#var1=var1
+sv1#page1#var2=var2
+sv1#page1#var3=var3
+sv1#page1=page1
+sv1#page6#inu1#ln3#par1=par1
+sv1#page6#inu1#ln3#par6=par6
+sv1#page6#inu1#ln3=ln3
+sv1#page6#inu1#su1#rcond3=rcond3
+sv1#page6#inu1#su1=su1
+sv1#page6#inu1=inu1
+sv1#page6#pwu1#ln8=ln8
+sv1#page6#pwu1=pwu1
+sv1#page6=page6

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?webml version="4.0.3"?>
-<WebProject xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:db="http://www.webratio.com/2006/WebML/Database" xmlns:wrxsd="http://www.webratio.com/2012/WebML/WRXSD" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" xmlns:temp="http://www.webratio.com/2006/WebML/Temp" xmlns:bpm="http://www.webratio.com/2009/WebML/BPM" outputPath="${webapps_loc}/${project_name}" gr:showUnitContent="true" gr:showTooltip="true" httpPort="8080" httpsPort="8443" enableProjectDependencies="false" jobGroupName="WEBRATIO" wrTempNewProject="true" control="amRiYzpwb3N0Z3Jlc3FsOi8vbG9jYWxob3N0OjU0MzIvVUFVRElP">  
+<WebProject xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:db="http://www.webratio.com/2006/WebML/Database" xmlns:wrxsd="http://www.webratio.com/2012/WebML/WRXSD" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" xmlns:temp="http://www.webratio.com/2006/WebML/Temp" xmlns:bpm="http://www.webratio.com/2009/WebML/BPM" outputPath="${webapps_loc}/${project_name}" gr:showUnitContent="true" gr:showTooltip="true" httpPort="8080" httpsPort="8443" enableProjectDependencies="false" jobGroupName="WEBRATIO" wrTempNewProject="true" control="amRiYzpwb3N0Z3Jlc3FsOi8vbG9jYWxob3N0OjU0MzIvVUFVRElPU2l0ZSBWaWV3IDE=">  
+  <ServiceDataProviders/>  
   <DataModel> 
     <Entity id="User" name="User" duration="persistent" gr:x="20" gr:y="158" gr:hideAttributes="false" attributeOrder="userOID userName password email" db:database="db1" db:table="user"> 
       <Attribute name="id" id="userOID" type="integer" key="true" db:column="id"/>  
@@ -109,7 +110,7 @@
         <db:JoinColumn attribute="att3" name="id"/> 
       </RelationshipRole2> 
     </Relationship>  
-    <db:Database id="db1" name="UAUDIO" type="PostgreSQL 9" url="jdbc:postgresql://localhost:5432/UAUDIO" username="postgres" cryptedPassword="true" password="amVwbDIwMDE=" schema="public"> 
+    <db:Database id="db1" name="UAUDIO" type="PostgreSQL 9" url="jdbc:postgresql://localhost:5432/UAUDIO" username="postgres" cryptedPassword="true" password="dG9vcg==" schema="public"> 
       <temp:DBMetaData driverMajorVersion="9" driverMinorVersion="3" driverVersion="PostgreSQL 9.3 JDBC3g (build 1103)" productVersion="9.6.15" identifierQuoteString="&quot;" transactionLevel="Read Committed" driverName="PostgreSQL Native Driver" productName="PostgreSQL"> 
         <temp:Schema name="information_schema"/>  
         <temp:Schema name="pg_catalog"/>  
@@ -173,7 +174,7 @@
       </temp:DBMetaData> 
     </db:Database> 
   </DataModel>  
-  <WebModel defaultLocale="lcl1" layout:style="WebRatio" layout:inheritParameters="true" edtLvl="WebRatio Platform # 20231125" edtLvlCtrl="V2ViUmF0aW8gUGxhdGZvcm0gIyAyMDIzMTEyNUNvdW50cnlJU09DdHhQYXJhbUdyb3VwQ3R4UGFyYW1MYW5ndWFnZUlTT0N0eFBhcmFtVXNlckN0eFBhcmFt"> 
+  <WebModel defaultLocale="lcl1" layout:style="WebRatio" layout:inheritParameters="true" edtLvl="WebRatio Platform # 20231125" edtLvlCtrl="V2ViUmF0aW8gUGxhdGZvcm0gIyAyMDIzMTEyNUNvdW50cnlJU09DdHhQYXJhbUdyb3VwQ3R4UGFyYW1MYW5ndWFnZUlTT0N0eFBhcmFtVXNlckN0eFBhcmFt" homeSiteView="sv1"> 
     <Locale id="lcl1" country="US" language="en"> 
       <PatternConfiguration type="boolean" pattern="yes|no"/>  
       <PatternConfiguration type="decimal" useNumberPattern="false" maxDecimal="3" minDecimal="0" minInteger="1" useThousandSeparator="true"/>  
@@ -186,7 +187,87 @@
     <ContextParameter id="UserCtxParam" name="UserCtxParam" entity="User" type="entity"/>  
     <ContextParameter id="GroupCtxParam" name="GroupCtxParam" entity="Group" type="entity"/>  
     <ContextParameter id="LanguageISOCtxParam" name="LanguageISOCtxParam" type="string"/>  
-    <ContextParameter id="CountryISOCtxParam" name="CountryISOCtxParam" type="string"/> 
-  </WebModel>  
-  <ServiceDataProviders/> 
+    <ContextParameter id="CountryISOCtxParam" name="CountryISOCtxParam" type="string"/>  
+    <SiteView id="sv1" name="Site View 1" layout:attributeLayout="WRDefault/Simple" homePage="page6"> 
+      <OperationUnits/>  
+      <Page gr:x="120" gr:y="160" id="page1" name="Rep" ajaxEnabled="true" layout:pageLayout="StoreTemplates/Audio"> 
+        <ContentUnits/>  
+        <layout:Grid containerType="grid"> 
+          <layout:Row> 
+            <layout:Cell colspan="12"/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row> 
+        </layout:Grid>  
+        <Variable id="var1" name="songID" type="integer"/>  
+        <Variable id="var2" name="artist"/>  
+        <Variable id="var3" name="songName"/> 
+      </Page>  
+      <Page gr:x="110" gr:y="340" id="page6" name="Page 6"> 
+        <ContentUnits> 
+          <IndexUnit gr:x="0" gr:y="0" id="inu1" name="Simple List1" entity="ent2" linkOrder="ln3" displayAttributes="att4"> 
+            <Link id="ln3" name="listen" to="page1" type="normal" validate="true"> 
+              <LinkParameter id="par1" name="id_id" source="data[].att3" targetVariable="var1"/>  
+              <LinkParameter id="par6" name="name_songName" source="data[].att4" targetVariable="var3"/> 
+            </Link>  
+            <Selector id="su1" defaultPolicy="fill" booleanOperator="and"> 
+              <RelationshipRoleCondition id="rcond3" name="RoleCondition3" predicate="in" implied="false" role="role6"/> 
+            </Selector> 
+          </IndexUnit>  
+          <PowerIndexUnit gr:x="25" gr:y="185" id="pwu1" name="List1" sortable="true" checkable="false" useCountQuery="false" entity="ent3" linkOrder="ln8" displayAttributes="att8"> 
+            <Link id="ln8" name="Flow8" to="inu1" automaticCoupling="true" type="normal" validate="true"/> 
+          </PowerIndexUnit> 
+        </ContentUnits>  
+        <layout:Grid containerType="grid"> 
+          <layout:Row> 
+            <layout:Cell colspan="12"> 
+              <layout:Unit unitId="inu1"> 
+                <layout:Link link="ln3"/>  
+                <layout:Attribute attribute="att4"/> 
+              </layout:Unit> 
+            </layout:Cell>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row>  
+          <layout:Row> 
+            <layout:Cell colspan="12"> 
+              <layout:Unit unitId="pwu1"> 
+                <layout:Link link="ln8"/>  
+                <layout:Attribute attribute="att8"/> 
+              </layout:Unit> 
+            </layout:Cell>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row> 
+        </layout:Grid> 
+      </Page> 
+    </SiteView> 
+  </WebModel> 
 </WebProject>
