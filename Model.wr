@@ -187,25 +187,34 @@
     <ContextParameter id="GroupCtxParam" name="GroupCtxParam" entity="Group" type="entity"/>  
     <ContextParameter id="LanguageISOCtxParam" name="LanguageISOCtxParam" type="string"/>  
     <ContextParameter id="CountryISOCtxParam" name="CountryISOCtxParam" type="string"/>  
-    <SiteView id="sv1" name="LoginSiteView" homePage="page3" layout:cellLayout="WRDefault/BAM_TrendChart"> 
+    <SiteView id="sv1" name="LoginSiteView" homePage="page3" layout:cellLayout="WRDefault/BAM_TrendChart" landmarks="page8"> 
       <OperationUnits> 
         <ModuleInstanceUnit gr:x="400" gr:y="235" id="miu1" action="true" moduleId="opm11"> 
           <KOLink id="kln11" name="KOFlow11" to="mssu1"> 
             <LinkParameter id="par27" name="errorLogin_param_Shown Messages" source="ocp1" target="mssu1.shownMessages"/> 
-          </KOLink> 
+          </KOLink>  
+          <OKLink id="oln29" name="OKFlow29" to="page7" automaticCoupling="true"/> 
         </ModuleInstanceUnit>  
         <ModuleInstanceUnit id="miu2" gr:x="705" gr:y="420" action="true" moduleId="opm17"> 
           <KOLink id="kln12" name="KOFlow4" to="mssu2"> 
             <LinkParameter id="par28" name="error_param_Shown Messages" source="opm3#kocu2#ocp2" target="mssu2.shownMessages"/> 
           </KOLink>  
           <OKLink id="oln23" name="OKFlow23" to="page3" automaticCoupling="true" gr:bendpoints="-308,30,252,210"/> 
+        </ModuleInstanceUnit>  
+        <ModuleInstanceUnit gr:x="1015" gr:y="665" id="miu3" action="true" moduleId="opm16"> 
+          <OKLink id="oln30" name="OKFlow30" to="mssu5"> 
+            <LinkParameter id="par66" name="CorrectMess_Shown Messages" source="ocp3" target="mssu5.shownMessages"/> 
+          </OKLink>  
+          <KOLink id="kln17" name="KOFlow17" to="mssu5" gr:bendpoints="-112,-61,-52,89"> 
+            <LinkParameter id="par65" name="ErrorMess_Shown Messages" source="ocp4" target="mssu5.shownMessages"/> 
+          </KOLink> 
         </ModuleInstanceUnit> 
       </OperationUnits>  
       <Page id="page3" name="Iniciar sesion" gr:x="160" gr:y="155" layout:fieldLayout="WRDefault/EntryUnit" layout:linkLayout="WRDefault/Extended" layout:frameLayout="Excel/Excel"> 
         <ContentUnits> 
           <EntryUnit id="enu1" name="Iniciar sesi&#243;n" gr:x="5" gr:y="0" linkOrder="ln1 ln4 ln5" fieldOrder="fld1 fld2"> 
             <Field id="fld1" name="Email" type="string" modifiable="true"/>  
-            <Field id="fld2" name="Contrase&#241;a" type="string" modifiable="true"/>  
+            <Field id="fld2" name="Contrase&#241;a" type="password" modifiable="true"/>  
             <Link id="ln1" name="Iniciar sesi&#243;n" to="miu1" type="normal" validate="true"> 
               <LinkParameter id="par25" name="contrase&#241;a_pass_param" source="fld2" target="miu1.icp2"/>  
               <LinkParameter id="par26" name="usuario_userName_param" source="fld1" target="miu1.icp1"/> 
@@ -258,7 +267,7 @@
       </Page>  
       <Page id="page4" name="Registro" gr:x="650" gr:y="55" landmark="false"> 
         <ContentUnits> 
-          <EntryUnit id="enu2" name="Registro de usuario" linkOrder="ln2 ln6 ln19" gr:x="0" gr:y="0" entity="User" fieldOrder="fld5 fld4 fld7 fld11"> 
+          <EntryUnit id="enu2" name="Registro de usuario" linkOrder="ln2 ln19 ln22" gr:x="0" gr:y="0" entity="User" fieldOrder="fld5 fld4 fld7 fld11"> 
             <Field id="fld4" name="Contrase&#241;a" type="password" modifiable="true" attribute="password"> 
               <VRules> 
                 <MandatoryValidationRule id="mnd2" name="Mandatory1"/>  
@@ -275,16 +284,15 @@
               <LinkParameter id="par37" name="contrase&#241;a_pass_param" source="fld4" target="miu2.icp16"/>  
               <LinkParameter id="par38" name="email_usuario_param" source="fld5" target="miu2.icp13"/> 
             </Link>  
-            <Field id="fld7" name="Repetir contrase&#241;a" type="string" modifiable="true"> 
+            <Field id="fld7" name="Repetir contrase&#241;a" type="password" modifiable="true"> 
               <VRValidationLink linkId="ln2" action="validate"/>  
               <VRules> 
-                <MandatoryValidationRule id="mnd4" name="Mandatory4"/>  
-                <LikeValidationRule id="like1" name="Like1" predicate="contains" ignoreCase="false" valueField="fld4" errorMessage="Las contrase&#241;as deben coincidir."/> 
+                <MandatoryValidationRule id="mnd4" name="Mandatory4"/> 
               </VRules> 
             </Field>  
-            <Link id="ln6" name="Iniciar sesi&#243;n" to="page3" automaticCoupling="true" type="normal" validate="false" gr:bendpoints="-451,-37,59,-177"/>  
             <Field id="fld11" name="Aceptar t&#233;rminos y condiciones." type="boolean" modifiable="true"/>  
-            <Link id="ln19" name="Consultar t&#233;rminos y condiciones" to="page6" automaticCoupling="true" type="normal" validate="false"/> 
+            <Link id="ln19" name="Consultar t&#233;rminos y condiciones" to="page6" automaticCoupling="true" type="normal" validate="false"/>  
+            <Link id="ln22" name="Iniciar sesi&#243;n" to="page3" automaticCoupling="true" type="normal" validate="false" gr:bendpoints="-476,-50,34,-190"/> 
           </EntryUnit>  
           <MultiMessageUnit id="mssu2" name="Error de registro" gr:x="140" gr:y="165"/> 
         </ContentUnits>  
@@ -297,8 +305,8 @@
                 <layout:Field field="fld7"/>  
                 <layout:Field field="fld11"/>  
                 <layout:Link link="ln2"/>  
-                <layout:Link link="ln6"/>  
-                <layout:Link link="ln19"/> 
+                <layout:Link link="ln19"/>  
+                <layout:Link link="ln22"/> 
               </layout:Unit> 
             </layout:Cell>  
             <layout:Cell/>  
@@ -354,11 +362,11 @@
                 <CompareValidationRule id="cmp1" name="Compare1" predicate="eq" ignoreCase="true" valueField="fld10"/> 
               </VRules> 
             </Field>  
-            <Link id="ln15" to="mssu3" automaticCoupling="true" type="normal" validate="true" name="Continuar"/> 
+            <Link id="ln15" to="mssu3" type="normal" validate="true" name="Continuar"> 
+              <LinkParameter id="par55" name="Email_Shown Messages" target="mssu3.shownMessages" sourceValue="Se ha enviado un correo electr&#243;nico de recuperaci&#243;n de contrase&#241;a, revise su bandeja de entrada o spam."/> 
+            </Link> 
           </EntryUnit>  
-          <MultiMessageUnit gr:x="240" gr:y="0" id="mssu3" name="Message3"> 
-            <Message xml:space="preserve">Se ha enviado un correo electr&#243;nico de recuperaci&#243;n de contrase&#241;a, revise su bandeja de entrada o spam.</Message> 
-          </MultiMessageUnit> 
+          <MultiMessageUnit gr:x="240" gr:y="0" id="mssu3"/> 
         </ContentUnits>  
         <layout:Grid containerType="grid"> 
           <layout:Row> 
@@ -453,7 +461,46 @@ La Universidad de Alicante se reserva el derecho de modificar o revisar estos t&
 
 8. Ley Aplicable
 
-Estos t&#233;rminos se rigen por y se interpretan de acuerdo con las leyes Europeas y Espa&#241;a. Cualquier acci&#243;n legal derivada o relacionada con estos t&#233;rminos se llevar&#225; exclusivamente en los tribunales de la jurisdicci&#243;n correspondiente.</Message> 
+Estos t&#233;rminos se rigen por y se interpretan de acuerdo con las leyes Europeas y Espa&#241;a. Cualquier acci&#243;n legal derivada o relacionada con estos t&#233;rminos se llevar&#225; exclusivamente en los tribunales de la jurisdicci&#243;n correspondiente.</Message>  
+            <Comment xml:space="preserve">T&#233;rminos de Uso de UAudio
+
+Al acceder o utilizar el software UAudio, aceptas quedar sujeto a los siguientes t&#233;rminos. Si no est&#225;s de acuerdo con alguna parte de estos t&#233;rminos, por favor, abstente de utilizar el software.
+
+1. Prop&#243;sito del Software
+
+UAudio es un software desarrollado como parte de un proyecto universitario y est&#225; destinado a fines educativos e investigativos dentro de la comunidad universitaria.
+
+2. Licencia y Uso
+
+    Concesi&#243;n de Licencia: UAudio se proporciona bajo una licencia no exclusiva, revocable y no transferible. Puedes utilizar el software para fines educativos e investigativos dentro de la universidad.
+    Restricciones: No puedes copiar, modificar, distribuir, vender o arrendar ninguna parte del software. La ingenier&#237;a inversa o cualquier intento de extraer el c&#243;digo fuente est&#225; estrictamente prohibido.
+
+3. Propiedad e Propiedad Intelectual
+
+2.1 Propiedad: El software y todos los derechos de propiedad intelectual siguen siendo propiedad de la Universidad de Alicante. Reconoces que no se realiza ninguna transferencia de propiedad a ti bajo estos t&#233;rminos.
+2.2 Comentarios: Cualquier comentario, sugerencia o mejora que proporciones sobre el software puede ser utilizado por la Universidad de Alicante sin ninguna obligaci&#243;n hacia ti.
+
+4. Privacidad
+
+3.1. Recopilaci&#243;n de Datos: La Universidad de Alicante puede recopilar datos de uso anonimizados con el fin de mejorar el software. No se recopilar&#225; informaci&#243;n personal identificable sin tu consentimiento expl&#237;cito.
+3.2 Seguridad: La Universidad de Alicante tomar&#225; medidas razonables para asegurar el software y cualquier dato recopilado. Sin embargo, no puede garantizar seguridad absoluta.
+
+5. Terminaci&#243;n
+
+La Universidad de Alicante se reserva el derecho de terminar tu acceso al software en cualquier momento y por cualquier motivo, incluido el incumplimiento de estos t&#233;rminos.
+
+6. Descargos de Responsabilidad
+
+5.1 Sin Garant&#237;a: El software se proporciona "tal cual" sin ninguna garant&#237;a. La Universidad de Alicante no ofrece representaciones o garant&#237;as de ning&#250;n tipo con respecto al software, expresas o impl&#237;citas.
+5.2 Uso bajo tu propio riesgo: Utilizas el software bajo tu propio riesgo. La Universidad de Alicante no ser&#225; responsable por da&#241;os directos, indirectos, incidentales, consecuentes u otros que surjan del uso o la incapacidad de utilizar el software.
+
+7. Cambios en los T&#233;rminos
+
+La Universidad de Alicante se reserva el derecho de modificar o revisar estos t&#233;rminos en cualquier momento. Los t&#233;rminos actualizados ser&#225;n efectivos al publicarse.
+
+8. Ley Aplicable
+
+Estos t&#233;rminos se rigen por y se interpretan de acuerdo con las leyes Europeas y Espa&#241;a. Cualquier acci&#243;n legal derivada o relacionada con estos t&#233;rminos se llevar&#225; exclusivamente en los tribunales de la jurisdicci&#243;n correspondiente.</Comment> 
           </MultiMessageUnit> 
         </ContentUnits>  
         <layout:Grid containerType="grid"> 
@@ -503,6 +550,92 @@ Estos t&#233;rminos se rigen por y se interpretan de acuerdo con las leyes Europ
           </layout:Row> 
         </layout:Grid>  
         <Link id="ln20" name="Volver" to="enu2" automaticCoupling="true" type="normal" validate="true" gr:bendpoints="-169,40,271,65;-238,51,202,76"/> 
+      </Page>  
+      <Page gr:x="625" gr:y="585" id="page7" name="Pagina de b&#250;squeda"> 
+        <ContentUnits/>  
+        <layout:Grid containerType="grid"> 
+          <layout:Row> 
+            <layout:Cell colspan="12"/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row> 
+        </layout:Grid> 
+      </Page>  
+      <Page gr:x="1005" gr:y="390" id="page8" name="Ajustes de usuario" landmark="true"> 
+        <ContentUnits> 
+          <EntryUnit id="enu6" name="Ajustes de usuario" gr:x="75" gr:y="0" entity="User" fieldOrder="fld18 fld17 fld19" linkOrder="ln31"> 
+            <Field id="fld17" name="Contrase&#241;a" type="password" modifiable="true" attribute="password"> 
+              <VRules> 
+                <MandatoryValidationRule id="mnd9" name="Mandatory1"/>  
+                <PasswordStrengthValidationRule id="psvr4" name="Password Strength1" securityLevel="medium"/> 
+              </VRules> 
+            </Field>  
+            <Field id="fld18" name="Email" type="string" modifiable="true" attribute="email"> 
+              <VRules> 
+                <MandatoryValidationRule id="mnd10" name="Mandatory2"/> 
+              </VRules> 
+            </Field>  
+            <Field id="fld19" name="Repetir contrase&#241;a" type="password" modifiable="true"> 
+              <VRules> 
+                <MandatoryValidationRule id="mnd11" name="Mandatory4"/> 
+              </VRules> 
+            </Field>  
+            <Link id="ln31" name="Guardar" to="miu3" type="normal" validate="false"> 
+              <LinkParameter id="par62" name="Email_email_param" source="fld18" target="miu3.icp10"/>  
+              <LinkParameter id="par63" name="Email_name_param" source="fld18" target="miu3.icp8"/>  
+              <LinkParameter id="par64" name="Contrase&#241;a_passwd_param" source="fld17" target="miu3.icp12"/> 
+            </Link> 
+          </EntryUnit>  
+          <MultiMessageUnit gr:x="0" gr:y="95" id="mssu5"/> 
+        </ContentUnits>  
+        <layout:Grid containerType="grid"> 
+          <layout:Row> 
+            <layout:Cell colspan="12"> 
+              <layout:Unit unitId="enu6"> 
+                <layout:Field field="fld18"/>  
+                <layout:Field field="fld17"/>  
+                <layout:Field field="fld19"/>  
+                <layout:Link link="ln31"/> 
+              </layout:Unit> 
+            </layout:Cell>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row>  
+          <layout:Row> 
+            <layout:Cell colspan="12"> 
+              <layout:Unit unitId="mssu5"/> 
+            </layout:Cell>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row> 
+        </layout:Grid> 
       </Page> 
     </SiteView>  
     <ModuleView id="mov1" name="Module Definitions"> 
@@ -534,7 +667,7 @@ Estos t&#233;rminos se rigen por y se interpretan de acuerdo con las leyes Europ
             <OKLink id="oln9" name="OKFlow7" to="mfu2"> 
               <LinkParameter id="par52" name="email_param_email" source="icp10" target="mfu2.email"/>  
               <LinkParameter id="par53" name="passwd_param_password" source="icp12" target="mfu2.password"/>  
-              <LinkParameter id="par54" name="name_param_userName" source="icp8" target="mfu2.userName"/> 
+              <LinkParameter id="par54" name="name_param_userName" source="icp10" target="mfu2.userName"/> 
             </OKLink>  
             <InputCollectorParameter id="icp8" name="name_param"/>  
             <InputCollectorParameter id="icp10" name="email_param"/>  
@@ -551,7 +684,7 @@ Estos t&#233;rminos se rigen por y se interpretan de acuerdo con las leyes Europ
               <KeyCondition id="kcond7" name="KeyCondition7" predicate="in" implied="false"/> 
             </Selector>  
             <OKLink id="oln28" name="OKFlow8" to="okcu5" automaticCoupling="true"/>  
-            <KOLink id="kln16" name="KOFlow5" to="kocu5" automaticCoupling="true"/> 
+            <KOLink id="kln16" name="KOFlow5" to="kocu5"/> 
           </ModifyUnit> 
         </OperationUnits> 
       </OperationModule>  
@@ -566,9 +699,7 @@ Estos t&#233;rminos se rigen por y se interpretan de acuerdo con las leyes Europ
             </OKLink>  
             <InputCollectorParameter id="icp13" name="usuario_param"/>  
             <InputCollectorParameter id="icp14" name="email_param"/>  
-            <InputCollectorParameter id="icp15" name="grupoDefault_param"/>  
-            <InputCollectorParameter id="icp16" name="pass_param"/>  
-            <InputCollectorParameter id="icp17" name="category_param"/> 
+            <InputCollectorParameter id="icp16" name="pass_param"/> 
           </InputCollectorUnit>  
           <CreateUnit id="cru4" name="Alta usuario" gr:x="265" gr:y="105" entity="User"> 
             <OKLink id="oln12" name="OKFlow5" to="okcu6" automaticCoupling="true"/>  
