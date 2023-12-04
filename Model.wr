@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?webml version="4.0.3"?>
-<WebProject xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:db="http://www.webratio.com/2006/WebML/Database" xmlns:wrxsd="http://www.webratio.com/2012/WebML/WRXSD" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" xmlns:temp="http://www.webratio.com/2006/WebML/Temp" xmlns:bpm="http://www.webratio.com/2009/WebML/BPM" outputPath="${webapps_loc}/${project_name}" gr:showUnitContent="true" gr:showTooltip="true" httpPort="8080" httpsPort="8443" enableProjectDependencies="false" jobGroupName="WEBRATIO" wrTempNewProject="true" gr:useUMLStyle="true" control="amRiYzpwb3N0Z3Jlc3FsOi8vbG9jYWxob3N0OjU0MzIvVUFVRElPQj9zcXVlZGFQbGF5bGlzdHM=">  
-  <ServiceDataProviders/>  
+<WebProject xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:db="http://www.webratio.com/2006/WebML/Database" xmlns:wrxsd="http://www.webratio.com/2012/WebML/WRXSD" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" xmlns:temp="http://www.webratio.com/2006/WebML/Temp" xmlns:bpm="http://www.webratio.com/2009/WebML/BPM" outputPath="${webapps_loc}/${project_name}" gr:showUnitContent="true" gr:showTooltip="true" httpPort="8080" httpsPort="8443" enableProjectDependencies="false" jobGroupName="WEBRATIO" wrTempNewProject="true" gr:useUMLStyle="true" control="amRiYzpwb3N0Z3Jlc3FsOi8vbG9jYWxob3N0OjU0MzIvVUFVRElPUGxheWxpc3Rz">  
   <DataModel> 
     <Entity id="User" name="User" duration="persistent" gr:x="20" gr:y="158" gr:hideAttributes="false" attributeOrder="userOID userName password email" db:database="db1" db:table="user"> 
       <Attribute name="id" id="userOID" type="integer" key="true" db:column="id"/>  
@@ -127,7 +126,7 @@
     <ContextParameter id="LanguageISOCtxParam" name="LanguageISOCtxParam" type="string"/>  
     <ContextParameter id="CountryISOCtxParam" name="CountryISOCtxParam" type="string"/>  
     <ModuleView id="mov4" name="Operaciones"> 
-      <OperationModule gr:x="160" gr:y="150" id="opm1" name="Crear playlist"> 
+      <OperationModule gr:x="160" gr:y="150" id="opm1" name="Crear o actualizar playlist"> 
         <OperationUnits> 
           <InputCollectorUnit id="icu5" gr:x="-105" gr:y="150" linkOrder="ln20 ln21"> 
             <OKLink id="oln4" name="OKFlow4" to="inn1"> 
@@ -163,9 +162,9 @@
             </KOLink>  
             <OKLink id="oln7" name="OKFlow7" to="okcu2" automaticCoupling="true"/> 
           </ModifyUnit>  
-          <IsNotNullUnit gr:x="180" gr:y="165" id="inn1" name="ExistePlayList?"> 
-            <OKLink id="oln5" name="OKFlow5" to="cru2" automaticCoupling="true"/>  
-            <KOLink id="kln4" name="KOFlow4" to="mfu1" automaticCoupling="true"/> 
+          <IsNotNullUnit gr:x="180" gr:y="165" id="inn1" name="ExistePlayList?" emptyStringAsNull="true"> 
+            <OKLink id="oln5" name="OKFlow5" to="mfu1" automaticCoupling="true"/>  
+            <KOLink id="kln4" name="KOFlow4" to="cru2" automaticCoupling="true"/> 
           </IsNotNullUnit> 
         </OperationUnits> 
       </OperationModule>  
@@ -246,51 +245,70 @@
         </OperationUnits> 
       </OperationModule> 
     </ModuleView>  
-    <SiteView id="sv1" name="B&#250;squeda"> 
-      <OperationUnits/> 
-    </SiteView>  
     <SiteView id="sv2" name="Playlists" landmarks="area1 area4" homePage="page19"> 
       <OperationUnits/>  
-      <Area gr:x="-20" gr:y="-190" id="area1" name="Playlists" landmark="true" defaultPage="page5"> 
+      <Page id="page28" name="Rep" ajaxEnabled="true" gr:x="1295" gr:y="335" layout:pageLayout="StoreTemplates/Audio"> 
+        <ContentUnits/>  
+        <layout:Grid containerType="grid"> 
+          <layout:Row> 
+            <layout:Cell colspan="12"/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row> 
+        </layout:Grid>  
+        <Variable id="var5" name="songID" type="integer"/>  
+        <Variable id="var6" name="artist"/>  
+        <Variable id="var7" name="songName"/> 
+      </Page>  
+      <Area gr:x="-80" gr:y="-190" id="area1" name="Playlists" landmark="true" defaultPage="page5"> 
         <OperationUnits> 
-          <ModuleInstanceUnit id="miu3" gr:x="0" gr:y="170" action="true" moduleId="opm1"> 
+          <ModuleInstanceUnit id="miu3" gr:x="0" gr:y="150" action="true" moduleId="opm1"> 
             <OKLink id="oln12" name="OKFlow3" to="page5" automaticCoupling="true"/>  
             <KOLink id="kln9" name="KOFlow3" to="mssu8"> 
               <LinkParameter id="par34" name="Error crear_Shown Messages" source="ocp1" target="mssu8.shownMessages"/> 
             </KOLink> 
           </ModuleInstanceUnit>  
-          <ModuleInstanceUnit id="miu4" gr:x="845" gr:y="175" action="true" moduleId="opm2"> 
+          <ModuleInstanceUnit id="miu4" gr:x="975" gr:y="210" action="true" moduleId="opm2"> 
             <OKLink id="oln13" name="OKFlow2" to="page5" automaticCoupling="true"/>  
             <KOLink id="kln10" name="KOFlow2" to="mssu7"> 
               <LinkParameter id="par35" name="Error borrar_Shown Messages" source="ocp2" target="mssu7.shownMessages"/> 
             </KOLink> 
           </ModuleInstanceUnit>  
-          <ModuleInstanceUnit gr:x="815" gr:y="85" id="miu7" action="true" moduleId="opm4"> 
+          <ModuleInstanceUnit gr:x="955" gr:y="50" id="miu7" action="true" moduleId="opm4"> 
             <OKLink id="oln19" name="OKFlow19" to="page5" automaticCoupling="true"/>  
             <KOLink id="kln15" name="KOFlow15" to="mssu13"> 
               <LinkParameter id="par70" name="Error_Shown Messages" source="ocp4" target="mssu13.shownMessages"/> 
             </KOLink> 
           </ModuleInstanceUnit> 
         </OperationUnits>  
-        <Page id="page5" name="Playlist Home" gr:x="255" gr:y="0"> 
+        <Page id="page5" name="Playlist Home" gr:x="310" gr:y="0"> 
           <ContentUnits> 
             <MultiMessageUnit id="mssu6" name="Bienvenidx a la secci&#243;n de playlists" gr:x="0" gr:y="0"> 
               <Message xml:space="preserve">En esta pantalla podr&#225;s gestionar tus listas de reproducci&#243;n</Message> 
             </MultiMessageUnit>  
-            <EntryUnit id="enu6" name="Crear playlist" linkOrder="ln7" gr:x="5" gr:y="90"> 
+            <EntryUnit id="enu6" name="Crear playlist" linkOrder="ln7" gr:x="60" gr:y="165" entity="ent1" fieldOrder="fld3"> 
               <Link id="ln7" name="Crear" to="miu3" type="normal" validate="true"> 
                 <LinkParameter id="par31" name="id_id_param" source="fld5" target="miu3.icp4"/>  
                 <LinkParameter id="par32" name="Nombre_name_param" source="fld3" target="miu3.icp5"/> 
               </Link>  
-              <Field id="fld3" name="Nombre" type="string" modifiable="true"/>  
+              <Field id="fld3" name="Nombre" type="string" modifiable="true" preloaded="true"/>  
               <Field id="fld5" name="id" type="string" modifiable="false" hidden="true" preloaded="true"/> 
             </EntryUnit>  
             <MultiMessageUnit id="mssu7" name="Error de borrado" gr:x="280" gr:y="315"/>  
             <MultiMessageUnit id="mssu8" name="Error de creacion" gr:x="110" gr:y="310"/>  
-            <HierarchicalIndexUnit id="hinu3" name="Tus playlists" linkOrder="ln10 ln34 ln45" gr:x="155" gr:y="135" sortable="false" entity="ent1" displayAttributes="att2"> 
+            <HierarchicalIndexUnit id="hinu3" name="Tus playlists" linkOrder="ln10 ln34 ln45 ln2" gr:x="260" gr:y="155" sortable="false" entity="ent1" displayAttributes="att2"> 
               <Selector id="su4" defaultPolicy="fill" booleanOperator="and"/>  
               <HierarchicalIndexLevel id="hiulvl3" name="Canciones" entity="ent2" role="role3" displayAttributes="att4"/>  
-              <Link id="ln10" name="Eliminar lista" to="miu4" type="normal" validate="true"> 
+              <Link id="ln10" to="miu4" type="normal" validate="true" name="&#10008;"> 
                 <LinkParameter id="par33" name="id(Tus playlists)_id_param" source="data[].att1" target="miu4.icp3"/> 
               </Link>  
               <Link id="ln34" name="&#10008;  " to="miu7" type="normal" validate="true"> 
@@ -301,6 +319,11 @@
                 <LinkParameter id="par89" name="id(Canciones)_songID" source="data[].hiulvl3data[].att3" targetVariable="var5"/>  
                 <LinkParameter id="par90" name="name(Canciones)_songName" source="data[].hiulvl3data[].att4" targetVariable="var7"/>  
                 <LinkParameter id="par91" name="PlaylistToCancion.CancionToArtistas.name(Tus playlists)_artist" source="data[]..role3$role5$att8" targetVariable="var6"/> 
+              </Link>  
+              <Link id="ln2" name="&#9998;" to="enu6" type="normal" validate="true"> 
+                <LinkParameter id="par11" name="id(Tus playlists)_id" source="data[].att1" target="fld5_slot"/>  
+                <LinkParameter id="par6" name="name(Tus playlists)_Nombre" source="data[].att2" target="fld3_slot"/>  
+                <LinkParameter id="par9" name="id(Tus playlists)_Key Condition [id]" source="data[].att1" target="enu6.att1"/> 
               </Link> 
             </HierarchicalIndexUnit>  
             <MultiMessageUnit gr:x="315" gr:y="20" id="mssu13" name="Error al quitar cancion"/> 
@@ -325,11 +348,12 @@
             <layout:Row> 
               <layout:Cell colspan="12"> 
                 <layout:Unit unitId="hinu3"> 
+                  <layout:Attribute attribute="att2"/>  
+                  <layout:Attribute attribute="att4"/>  
                   <layout:Link link="ln10"/>  
                   <layout:Link link="ln34"/>  
                   <layout:Link link="ln45"/>  
-                  <layout:Attribute attribute="att2"/>  
-                  <layout:Attribute attribute="att4"/> 
+                  <layout:Link link="ln2"/> 
                 </layout:Unit> 
               </layout:Cell>  
               <layout:Cell/>  
@@ -456,16 +480,174 @@
           </layout:Grid> 
         </Page> 
       </Area>  
-      <Area id="area4" name="Buscar" landmark="true" gr:x="220" gr:y="345" defaultPage="page19"> 
+      <Area id="area4" name="Buscar" landmark="true" gr:x="250" gr:y="345" defaultPage="page19"> 
         <OperationUnits> 
-          <ModuleInstanceUnit id="miu6" gr:x="150" gr:y="10" action="true" moduleId="opm3"> 
+          <ModuleInstanceUnit id="miu6" gr:x="105" gr:y="10" action="true" moduleId="opm3"> 
             <OKLink id="oln15" name="OKFlow11" to="page5" automaticCoupling="true"/>  
             <KOLink id="kln12" name="KOFlow8" to="mssu11"> 
               <LinkParameter id="par49" name="error_Shown Messages" source="ocp3" target="mssu11.shownMessages"/> 
             </KOLink> 
           </ModuleInstanceUnit> 
         </OperationUnits>  
-        <Page id="page16" name="Meter cancion a playlist" gr:x="30" gr:y="210"> 
+        <Page id="page21" name="&#193;lbumes" gr:x="610" gr:y="300"> 
+          <ContentUnits> 
+            <HierarchicalIndexUnit id="hinu5" name="&#193;lbumes encontrados" linkOrder="ln33 ln44" customDescriptor="false" gr:x="0" gr:y="0" sortable="false" entity="ent4" displayAttributes="att10 role7.att8"> 
+              <Selector id="su15" defaultPolicy="fill" booleanOperator="and"> 
+                <AttributesCondition id="acond8" name="name_con_album" predicate="eq" booleanOperator="or" implied="false" attributes="att10"/> 
+              </Selector>  
+              <HierarchicalIndexLevel id="hiulvl5" name="Canciones" entity="ent2" role="role9" displayAttributes="att4"/>  
+              <Link id="ln33" name="&#9733; " to="enu11" type="normal" validate="true"> 
+                <LinkParameter id="par62" name="id(Canciones)_id" source="data[].hiulvl5data[].att3" target="fld10_slot"/> 
+              </Link>  
+              <Link id="ln44" name="  &#9654; " to="page28" type="normal" validate="true"> 
+                <LinkParameter id="par86" name="AlbumToArtistas.name(&#193;lbumes encontrados)_artist" source="data[]..role7$att8" targetVariable="var6"/>  
+                <LinkParameter id="par87" name="id(Canciones)_songID" source="data[].hiulvl5data[].att3" targetVariable="var5"/>  
+                <LinkParameter id="par88" name="name(Canciones)_songName" source="data[].hiulvl5data[].att4" targetVariable="var7"/> 
+              </Link> 
+            </HierarchicalIndexUnit> 
+          </ContentUnits>  
+          <layout:Grid containerType="grid"> 
+            <layout:Row> 
+              <layout:Cell colspan="12"/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/> 
+            </layout:Row>  
+            <layout:Row> 
+              <layout:Cell colspan="12"> 
+                <layout:Unit unitId="hinu5"> 
+                  <layout:Attribute attribute="att10"/>  
+                  <layout:Attribute attribute="role7.att8"/>  
+                  <layout:Attribute attribute="att4"/>  
+                  <layout:Link link="ln33"/>  
+                  <layout:Link link="ln44"/> 
+                </layout:Unit> 
+              </layout:Cell>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/> 
+            </layout:Row>  
+            <layout:Row> 
+              <layout:Cell colspan="12"/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/> 
+            </layout:Row>  
+            <layout:Row> 
+              <layout:Cell colspan="12"/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/> 
+            </layout:Row>  
+            <layout:Row> 
+              <layout:Cell colspan="12"/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/> 
+            </layout:Row> 
+          </layout:Grid> 
+        </Page>  
+        <Page id="page20" name="Artistas" gr:x="20" gr:y="535"> 
+          <ContentUnits> 
+            <PowerIndexUnit id="pwu6" name="Artistas obtenidos" linkOrder="ln30" gr:x="255" gr:y="0" sortable="true" checkable="false" useCountQuery="false" entity="ent3" displayAttributes="att8" customDescriptor="false"> 
+              <Selector id="su13" defaultPolicy="fill" booleanOperator="and"> 
+                <AttributesCondition id="acond6" name="name_con_artist" predicate="eq" booleanOperator="or" implied="false" attributes="att8"/> 
+              </Selector>  
+              <Link id="ln30" name="Mostrar &#225;lbumes" to="pwu7" type="normal" validate="true"> 
+                <LinkParameter id="par59" name="id_AttCondition12" source="data[].att7" target="acond7"/> 
+              </Link> 
+            </PowerIndexUnit>  
+            <PowerIndexUnit id="pwu7" name="&#193;lbumes" linkOrder="ln31" gr:x="0" gr:y="0" sortable="true" checkable="false" useCountQuery="false" entity="ent4" displayAttributes="att10"> 
+              <Selector id="su14" defaultPolicy="fill" booleanOperator="and"> 
+                <AttributesCondition id="acond7" name="AttCondition12" predicate="eq" booleanOperator="or" implied="false" attributes="role7.att7"/> 
+              </Selector>  
+              <Link id="ln31" name="Ver canciones" to="hinu5" type="normal" validate="true"> 
+                <LinkParameter id="par60" name="name_name_con_album [&#193;lbumes obtenidos]" source="data[].att10" target="acond8"/> 
+              </Link> 
+            </PowerIndexUnit> 
+          </ContentUnits>  
+          <layout:Grid containerType="grid"> 
+            <layout:Row> 
+              <layout:Cell colspan="12"> 
+                <layout:Unit unitId="pwu6"> 
+                  <layout:Attribute attribute="att8"/>  
+                  <layout:Link link="ln30"/> 
+                </layout:Unit> 
+              </layout:Cell>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/> 
+            </layout:Row>  
+            <layout:Row> 
+              <layout:Cell colspan="12"> 
+                <layout:Unit unitId="pwu7"> 
+                  <layout:Attribute attribute="att10"/>  
+                  <layout:Link link="ln31"/> 
+                </layout:Unit> 
+              </layout:Cell>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/> 
+            </layout:Row> 
+          </layout:Grid> 
+        </Page>  
+        <Page id="page16" name="Meter cancion a playlist" gr:x="0" gr:y="210"> 
           <ContentUnits> 
             <SelectorUnit id="seu3" name="Selector de playlist" gr:x="0" gr:y="0" entity="ent1" distinctAttributes="att2"> 
               <Link id="ln23" name="Flow3" to="enu11" type="transport" validate="true"> 
@@ -504,7 +686,7 @@
             </layout:Row> 
           </layout:Grid> 
         </Page>  
-        <Page id="page18" name="Canciones" gr:x="540" gr:y="0"> 
+        <Page id="page18" name="Canciones" gr:x="510" gr:y="0"> 
           <ContentUnits> 
             <PowerIndexUnit id="pwu5" name="Canciones encontradas" linkOrder="ln26 ln43" gr:x="195" gr:y="0" sortable="true" checkable="false" useCountQuery="false" entity="ent2" displayAttributes="att4 role10.att10 role5.att8"> 
               <Selector id="su12" defaultPolicy="fill" booleanOperator="and"> 
@@ -562,24 +744,24 @@
             </layout:Row> 
           </layout:Grid> 
         </Page>  
-        <Page id="page19" name="B&#250;squeda" landmark="false" gr:x="510" gr:y="450"> 
+        <Page id="page19" name="B&#250;squeda" landmark="false" gr:x="510" gr:y="535"> 
           <ContentUnits> 
-            <EntryUnit id="enu12" name="Busca una canci&#243;n" linkOrder="ln27" gr:x="0" gr:y="85"> 
+            <EntryUnit id="enu12" name="Busca una canci&#243;n" linkOrder="ln27" gr:x="270" gr:y="0"> 
               <Field id="fld11" name="Nombre" type="string" modifiable="true"/>  
               <Link id="ln27" name="Buscar" to="pwu5" type="normal" validate="true"> 
                 <LinkParameter id="par56" name="Nombre_nombre_con" source="fld11" target="acond5"/> 
               </Link> 
             </EntryUnit>  
-            <MultiMessageUnit id="mssu12" name="Info de pesta&#241;a" gr:x="15" gr:y="0"> 
+            <MultiMessageUnit id="mssu12" name="Bienvenidx a la pesta&#241;a de b&#250;squeda" gr:x="150" gr:y="95"> 
               <Message xml:space="preserve">En esta pesta&#241;a podr&#225;s buscar canciones, artistas o &#225;lbumes</Message> 
             </MultiMessageUnit>  
-            <EntryUnit id="enu13" name="Busca un &#225;lbum" linkOrder="ln28" gr:x="20" gr:y="165"> 
+            <EntryUnit id="enu13" name="Busca un &#225;lbum" linkOrder="ln28" gr:x="115" gr:y="0"> 
               <Field id="fld12" name="Nombre" type="string" modifiable="true"/>  
               <Link id="ln28" name="Buscar" to="hinu5" type="normal" validate="true"> 
                 <LinkParameter id="par57" name="Nombre_name_con_album [&#193;lbumes obtenidos]" source="fld12" target="acond8"/> 
               </Link> 
             </EntryUnit>  
-            <EntryUnit id="enu14" name="Busca un artista" linkOrder="ln29" gr:x="20" gr:y="250"> 
+            <EntryUnit id="enu14" name="Busca un artista" linkOrder="ln29" gr:x="0" gr:y="70"> 
               <Link id="ln29" name="Buscar" to="pwu6" type="normal" validate="true"> 
                 <LinkParameter id="par58" name="Nombre_name_con_artist" source="fld13" target="acond6"/> 
               </Link>  
@@ -689,188 +871,8 @@
               <layout:Cell/> 
             </layout:Row> 
           </layout:Grid> 
-        </Page>  
-        <Page id="page20" name="Artistas" gr:x="0" gr:y="440"> 
-          <ContentUnits> 
-            <PowerIndexUnit id="pwu6" name="Artistas obtenidos" linkOrder="ln30" gr:x="250" gr:y="10" sortable="true" checkable="false" useCountQuery="false" entity="ent3" displayAttributes="att8"> 
-              <Selector id="su13" defaultPolicy="fill" booleanOperator="and"> 
-                <AttributesCondition id="acond6" name="name_con_artist" predicate="eq" booleanOperator="or" implied="false" attributes="att8"/> 
-              </Selector>  
-              <Link id="ln30" name="Mostrar &#225;lbumes" to="pwu7" type="normal" validate="true"> 
-                <LinkParameter id="par59" name="id_AttCondition12" source="data[].att7" target="acond7"/> 
-              </Link> 
-            </PowerIndexUnit>  
-            <PowerIndexUnit id="pwu7" name="&#193;lbumes" linkOrder="ln31" gr:x="0" gr:y="0" sortable="true" checkable="false" useCountQuery="false" entity="ent4" displayAttributes="att10"> 
-              <Selector id="su14" defaultPolicy="fill" booleanOperator="and"> 
-                <AttributesCondition id="acond7" name="AttCondition12" predicate="eq" booleanOperator="or" implied="false" attributes="role7.att7"/> 
-              </Selector>  
-              <Link id="ln31" name="Ver canciones" to="hinu5" type="normal" validate="true"> 
-                <LinkParameter id="par60" name="name_name_con_album [&#193;lbumes obtenidos]" source="data[].att10" target="acond8"/> 
-              </Link> 
-            </PowerIndexUnit> 
-          </ContentUnits>  
-          <layout:Grid containerType="grid"> 
-            <layout:Row> 
-              <layout:Cell colspan="12"> 
-                <layout:Unit unitId="pwu6"> 
-                  <layout:Attribute attribute="att8"/>  
-                  <layout:Link link="ln30"/> 
-                </layout:Unit> 
-              </layout:Cell>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/> 
-            </layout:Row>  
-            <layout:Row> 
-              <layout:Cell colspan="12"> 
-                <layout:Unit unitId="pwu7"> 
-                  <layout:Attribute attribute="att10"/>  
-                  <layout:Link link="ln31"/> 
-                </layout:Unit> 
-              </layout:Cell>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/> 
-            </layout:Row> 
-          </layout:Grid> 
-        </Page>  
-        <Page id="page21" name="&#193;lbumes" gr:x="765" gr:y="200"> 
-          <ContentUnits> 
-            <HierarchicalIndexUnit id="hinu5" name="&#193;lbumes encontrados" linkOrder="ln33 ln44" customDescriptor="false" gr:x="0" gr:y="0" sortable="false" entity="ent4" displayAttributes="att10 role7.att8"> 
-              <Selector id="su15" defaultPolicy="fill" booleanOperator="and"> 
-                <AttributesCondition id="acond8" name="name_con_album" predicate="eq" booleanOperator="or" implied="false" attributes="att10"/> 
-              </Selector>  
-              <HierarchicalIndexLevel id="hiulvl5" name="Canciones" entity="ent2" role="role9" displayAttributes="att4"/>  
-              <Link id="ln33" name="&#9733; " to="enu11" type="normal" validate="true"> 
-                <LinkParameter id="par62" name="id(Canciones)_id" source="data[].hiulvl5data[].att3" target="fld10_slot"/> 
-              </Link>  
-              <Link id="ln44" name="  &#9654; " to="page28" type="normal" validate="true"> 
-                <LinkParameter id="par86" name="AlbumToArtistas.name(&#193;lbumes encontrados)_artist" source="data[]..role7$att8" targetVariable="var6"/>  
-                <LinkParameter id="par87" name="id(Canciones)_songID" source="data[].hiulvl5data[].att3" targetVariable="var5"/>  
-                <LinkParameter id="par88" name="name(Canciones)_songName" source="data[].hiulvl5data[].att4" targetVariable="var7"/> 
-              </Link> 
-            </HierarchicalIndexUnit> 
-          </ContentUnits>  
-          <layout:Grid containerType="grid"> 
-            <layout:Row> 
-              <layout:Cell colspan="12"/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/> 
-            </layout:Row>  
-            <layout:Row> 
-              <layout:Cell colspan="12"> 
-                <layout:Unit unitId="hinu5"> 
-                  <layout:Attribute attribute="att10"/>  
-                  <layout:Attribute attribute="role7.att8"/>  
-                  <layout:Attribute attribute="att4"/>  
-                  <layout:Link link="ln33"/>  
-                  <layout:Link link="ln44"/> 
-                </layout:Unit> 
-              </layout:Cell>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/> 
-            </layout:Row>  
-            <layout:Row> 
-              <layout:Cell colspan="12"/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/> 
-            </layout:Row>  
-            <layout:Row> 
-              <layout:Cell colspan="12"/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/> 
-            </layout:Row>  
-            <layout:Row> 
-              <layout:Cell colspan="12"/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/> 
-            </layout:Row> 
-          </layout:Grid> 
         </Page> 
-      </Area>  
-      <Page id="page28" name="Rep" ajaxEnabled="true" gr:x="1205" gr:y="140" layout:pageLayout="StoreTemplates/Audio"> 
-        <ContentUnits/>  
-        <layout:Grid containerType="grid"> 
-          <layout:Row> 
-            <layout:Cell colspan="12"/>  
-            <layout:Cell/>  
-            <layout:Cell/>  
-            <layout:Cell/>  
-            <layout:Cell/>  
-            <layout:Cell/>  
-            <layout:Cell/>  
-            <layout:Cell/>  
-            <layout:Cell/>  
-            <layout:Cell/>  
-            <layout:Cell/>  
-            <layout:Cell/> 
-          </layout:Row> 
-        </layout:Grid>  
-        <Variable id="var5" name="songID" type="integer"/>  
-        <Variable id="var6" name="artist"/>  
-        <Variable id="var7" name="songName"/> 
-      </Page> 
+      </Area> 
     </SiteView> 
   </WebModel> 
 </WebProject>

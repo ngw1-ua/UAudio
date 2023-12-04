@@ -31,7 +31,6 @@ rel2
 rel3
 rel4
 rel5
-sv1
 sv2
 User
 User2DefaultGroup
@@ -162,6 +161,10 @@ sv2#area1#page5#enu6=enu6
 sv2#area1#page5#hinu3#hiulvl3=hiulvl3
 sv2#area1#page5#hinu3#ln10#par33=par33
 sv2#area1#page5#hinu3#ln10=ln10
+sv2#area1#page5#hinu3#ln2#par11=par11
+sv2#area1#page5#hinu3#ln2#par6=par6
+sv2#area1#page5#hinu3#ln2#par9=par9
+sv2#area1#page5#hinu3#ln2=ln2
 sv2#area1#page5#hinu3#ln34#par65=par65
 sv2#area1#page5#hinu3#ln34#par66=par66
 sv2#area1#page5#hinu3#ln34=ln34
