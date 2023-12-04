@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?webml version="4.0.3"?>
-<WebProject xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:db="http://www.webratio.com/2006/WebML/Database" xmlns:wrxsd="http://www.webratio.com/2012/WebML/WRXSD" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" xmlns:temp="http://www.webratio.com/2006/WebML/Temp" xmlns:bpm="http://www.webratio.com/2009/WebML/BPM" outputPath="${webapps_loc}/${project_name}" gr:showUnitContent="true" gr:showTooltip="true" httpPort="8080" httpsPort="8443" enableProjectDependencies="false" jobGroupName="WEBRATIO" wrTempNewProject="true" control="amRiYzpwb3N0Z3Jlc3FsOi8vbG9jYWxob3N0OjU0MzIvVUFVRElP">  
+<WebProject xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:db="http://www.webratio.com/2006/WebML/Database" xmlns:wrxsd="http://www.webratio.com/2012/WebML/WRXSD" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" xmlns:temp="http://www.webratio.com/2006/WebML/Temp" xmlns:bpm="http://www.webratio.com/2009/WebML/BPM" outputPath="${webapps_loc}/${project_name}" gr:showUnitContent="true" gr:showTooltip="true" httpPort="8080" httpsPort="8443" enableProjectDependencies="false" jobGroupName="WEBRATIO" wrTempNewProject="true" control="amRiYzpwb3N0Z3Jlc3FsOi8vbG9jYWxob3N0OjU0MzIvVUFVRElPTG9naW5TaXRlVmlldw==">  
   <DataModel> 
     <Entity id="User" name="User" duration="persistent" gr:x="20" gr:y="158" gr:hideAttributes="false" attributeOrder="userOID userName password email" db:database="db1" db:table="user"> 
       <Attribute name="id" id="userOID" type="integer" key="true" db:column="id"/>  
@@ -109,7 +109,7 @@
         <db:JoinColumn attribute="att3" name="id"/> 
       </RelationshipRole2> 
     </Relationship>  
-    <db:Database id="db1" name="UAUDIO" type="PostgreSQL 9" url="jdbc:postgresql://localhost:5432/UAUDIO" username="postgres" cryptedPassword="true" password="amVwbDIwMDE=" schema="public"> 
+    <db:Database id="db1" name="UAUDIO" type="PostgreSQL 9" url="jdbc:postgresql://localhost:5432/UAUDIO" username="postgres" password="YWRtaW4=" schema="public" cryptedPassword="true"> 
       <temp:DBMetaData driverMajorVersion="9" driverMinorVersion="3" driverVersion="PostgreSQL 9.3 JDBC3g (build 1103)" productVersion="9.6.15" identifierQuoteString="&quot;" transactionLevel="Read Committed" driverName="PostgreSQL Native Driver" productName="PostgreSQL"> 
         <temp:Schema name="information_schema"/>  
         <temp:Schema name="pg_catalog"/>  
@@ -173,7 +173,7 @@
       </temp:DBMetaData> 
     </db:Database> 
   </DataModel>  
-  <WebModel defaultLocale="lcl1" layout:style="WebRatio" layout:inheritParameters="true" edtLvl="WebRatio Platform # 20231125" edtLvlCtrl="V2ViUmF0aW8gUGxhdGZvcm0gIyAyMDIzMTEyNUNvdW50cnlJU09DdHhQYXJhbUdyb3VwQ3R4UGFyYW1MYW5ndWFnZUlTT0N0eFBhcmFtVXNlckN0eFBhcmFt"> 
+  <WebModel defaultLocale="lcl1" layout:style="WebRatio" layout:inheritParameters="true" edtLvl="WebRatio Platform # 20231125" edtLvlCtrl="V2ViUmF0aW8gUGxhdGZvcm0gIyAyMDIzMTEyNUNvdW50cnlJU09DdHhQYXJhbUdyb3VwQ3R4UGFyYW1MYW5ndWFnZUlTT0N0eFBhcmFtVXNlckN0eFBhcmFt" homeSiteView="sv1"> 
     <Locale id="lcl1" country="US" language="en"> 
       <PatternConfiguration type="boolean" pattern="yes|no"/>  
       <PatternConfiguration type="decimal" useNumberPattern="false" maxDecimal="3" minDecimal="0" minInteger="1" useThousandSeparator="true"/>  
@@ -186,7 +186,411 @@
     <ContextParameter id="UserCtxParam" name="UserCtxParam" entity="User" type="entity"/>  
     <ContextParameter id="GroupCtxParam" name="GroupCtxParam" entity="Group" type="entity"/>  
     <ContextParameter id="LanguageISOCtxParam" name="LanguageISOCtxParam" type="string"/>  
-    <ContextParameter id="CountryISOCtxParam" name="CountryISOCtxParam" type="string"/> 
+    <ContextParameter id="CountryISOCtxParam" name="CountryISOCtxParam" type="string"/>  
+    <SiteView id="sv1" name="LoginSiteView" homePage="page3" layout:cellLayout="WRDefault/BAM_TrendChart"> 
+      <OperationUnits> 
+        <ModuleInstanceUnit gr:x="400" gr:y="235" id="miu1" action="true" moduleId="opm11"> 
+          <KOLink id="kln11" name="KOFlow11" to="mssu1"> 
+            <LinkParameter id="par27" name="errorLogin_param_Shown Messages" source="ocp1" target="mssu1.shownMessages"/> 
+          </KOLink> 
+        </ModuleInstanceUnit>  
+        <ModuleInstanceUnit id="miu2" gr:x="705" gr:y="420" action="true" moduleId="opm17"> 
+          <KOLink id="kln12" name="KOFlow4" to="mssu2"> 
+            <LinkParameter id="par28" name="error_param_Shown Messages" source="opm3#kocu2#ocp2" target="mssu2.shownMessages"/> 
+          </KOLink>  
+          <OKLink id="oln23" name="OKFlow23" to="page3" automaticCoupling="true" gr:bendpoints="-308,30,252,210"/> 
+        </ModuleInstanceUnit> 
+      </OperationUnits>  
+      <Page id="page3" name="Iniciar sesion" gr:x="160" gr:y="155" layout:fieldLayout="WRDefault/EntryUnit" layout:linkLayout="WRDefault/Extended" layout:frameLayout="Excel/Excel"> 
+        <ContentUnits> 
+          <EntryUnit id="enu1" name="Iniciar sesi&#243;n" gr:x="5" gr:y="0" linkOrder="ln1 ln4 ln5" fieldOrder="fld1 fld2"> 
+            <Field id="fld1" name="Email" type="string" modifiable="true"/>  
+            <Field id="fld2" name="Contrase&#241;a" type="string" modifiable="true"/>  
+            <Link id="ln1" name="Iniciar sesi&#243;n" to="miu1" type="normal" validate="true"> 
+              <LinkParameter id="par25" name="contrase&#241;a_pass_param" source="fld2" target="miu1.icp2"/>  
+              <LinkParameter id="par26" name="usuario_userName_param" source="fld1" target="miu1.icp1"/> 
+            </Link>  
+            <Link id="ln4" name="Registrarse" to="page4" automaticCoupling="true" type="normal" validate="true" customDescriptor="false" gr:bendpoints="256,-60,-289,-35"/>  
+            <Link id="ln5" name="Olvid&#233; mi contrase&#241;a" to="page5" type="normal" validate="true" automaticCoupling="true" customDescriptor="false" gr:bendpoints="-143,157,-293,-228"/> 
+          </EntryUnit>  
+          <MultiMessageUnit id="mssu1" name="Error de login" gr:x="0" gr:y="125"/> 
+        </ContentUnits>  
+        <layout:Grid containerType="grid" layout:cellLayout="Excel/Excel"> 
+          <layout:Row> 
+            <layout:Cell colspan="12"> 
+              <layout:Unit unitId="enu1"> 
+                <layout:Field field="fld1"/>  
+                <layout:Field field="fld2"/>  
+                <layout:Link link="ln1"/>  
+                <layout:Link link="ln4"/>  
+                <layout:Link link="ln5"/> 
+              </layout:Unit> 
+            </layout:Cell>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row>  
+          <layout:Row> 
+            <layout:Cell colspan="12"> 
+              <layout:Unit unitId="mssu1"/> 
+            </layout:Cell>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row> 
+        </layout:Grid> 
+      </Page>  
+      <Page id="page4" name="Registro" gr:x="650" gr:y="55" landmark="false"> 
+        <ContentUnits> 
+          <EntryUnit id="enu2" name="Registro de usuario" linkOrder="ln2 ln6 ln19" gr:x="0" gr:y="0" entity="User" fieldOrder="fld5 fld4 fld7 fld11"> 
+            <Field id="fld4" name="Contrase&#241;a" type="password" modifiable="true" attribute="password"> 
+              <VRules> 
+                <MandatoryValidationRule id="mnd2" name="Mandatory1"/>  
+                <PasswordStrengthValidationRule id="psvr1" name="Password Strength1" securityLevel="medium"/> 
+              </VRules> 
+            </Field>  
+            <Field id="fld5" name="Email" type="string" modifiable="true" attribute="email"> 
+              <VRules> 
+                <MandatoryValidationRule id="mnd3" name="Mandatory2"/> 
+              </VRules> 
+            </Field>  
+            <Link id="ln2" name="Registrar" to="miu2" type="normal" validate="true"> 
+              <LinkParameter id="par36" name="email_email_param" source="fld5" target="miu2.icp14"/>  
+              <LinkParameter id="par37" name="contrase&#241;a_pass_param" source="fld4" target="miu2.icp16"/>  
+              <LinkParameter id="par38" name="email_usuario_param" source="fld5" target="miu2.icp13"/> 
+            </Link>  
+            <Field id="fld7" name="Repetir contrase&#241;a" type="string" modifiable="true"> 
+              <VRValidationLink linkId="ln2" action="validate"/>  
+              <VRules> 
+                <MandatoryValidationRule id="mnd4" name="Mandatory4"/>  
+                <LikeValidationRule id="like1" name="Like1" predicate="contains" ignoreCase="false" valueField="fld4" errorMessage="Las contrase&#241;as deben coincidir."/> 
+              </VRules> 
+            </Field>  
+            <Link id="ln6" name="Iniciar sesi&#243;n" to="page3" automaticCoupling="true" type="normal" validate="false" gr:bendpoints="-451,-37,59,-177"/>  
+            <Field id="fld11" name="Aceptar t&#233;rminos y condiciones." type="boolean" modifiable="true"/>  
+            <Link id="ln19" name="Consultar t&#233;rminos y condiciones" to="page6" automaticCoupling="true" type="normal" validate="false"/> 
+          </EntryUnit>  
+          <MultiMessageUnit id="mssu2" name="Error de registro" gr:x="140" gr:y="165"/> 
+        </ContentUnits>  
+        <layout:Grid containerType="grid"> 
+          <layout:Row> 
+            <layout:Cell colspan="12"> 
+              <layout:Unit unitId="enu2"> 
+                <layout:Field field="fld5"/>  
+                <layout:Field field="fld4"/>  
+                <layout:Field field="fld7"/>  
+                <layout:Field field="fld11"/>  
+                <layout:Link link="ln2"/>  
+                <layout:Link link="ln6"/>  
+                <layout:Link link="ln19"/> 
+              </layout:Unit> 
+            </layout:Cell>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row>  
+          <layout:Row> 
+            <layout:Cell colspan="12"> 
+              <layout:Unit unitId="mssu2"/> 
+            </layout:Cell>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row>  
+          <layout:Row> 
+            <layout:Cell colspan="12"/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row> 
+        </layout:Grid> 
+      </Page>  
+      <Page gr:x="150" gr:y="535" id="page5" name="Olvid&#233; mi contrase&#241;a" linkVisibilityPolicy="hide"> 
+        <ContentUnits> 
+          <EntryUnit gr:x="0" gr:y="0" id="enu4" name="Indique su email" linkOrder="ln15"> 
+            <Field id="fld10" name="Email" type="string" modifiable="true"> 
+              <VRules> 
+                <MandatoryValidationRule id="mnd5" name="Mandatory5"/>  
+                <CompareValidationRule id="cmp1" name="Compare1" predicate="eq" ignoreCase="true" valueField="fld10"/> 
+              </VRules> 
+            </Field>  
+            <Link id="ln15" to="mssu3" automaticCoupling="true" type="normal" validate="true" name="Continuar"/> 
+          </EntryUnit>  
+          <MultiMessageUnit gr:x="240" gr:y="0" id="mssu3" name="Message3"> 
+            <Message xml:space="preserve">Se ha enviado un correo electr&#243;nico de recuperaci&#243;n de contrase&#241;a, revise su bandeja de entrada o spam.</Message> 
+          </MultiMessageUnit> 
+        </ContentUnits>  
+        <layout:Grid containerType="grid"> 
+          <layout:Row> 
+            <layout:Cell colspan="12"/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row>  
+          <layout:Row> 
+            <layout:Cell colspan="12"> 
+              <layout:Unit unitId="enu4"> 
+                <layout:Field field="fld10"/>  
+                <layout:Link link="ln15"/> 
+              </layout:Unit> 
+            </layout:Cell>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row>  
+          <layout:Row> 
+            <layout:Cell colspan="12"> 
+              <layout:Unit unitId="mssu3"/> 
+            </layout:Cell>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row> 
+        </layout:Grid> 
+      </Page>  
+      <Page gr:x="1080" gr:y="105" id="page6" name="Terminos y condiciones" linkOrder="ln20"> 
+        <ContentUnits> 
+          <MultiMessageUnit gr:x="0" gr:y="0" id="mssu4" name="Terminos y condiciones"> 
+            <Message xml:space="preserve">T&#233;rminos de Uso de UAudio
+
+Al acceder o utilizar el software UAudio, aceptas quedar sujeto a los siguientes t&#233;rminos. Si no est&#225;s de acuerdo con alguna parte de estos t&#233;rminos, por favor, abstente de utilizar el software.
+
+1. Prop&#243;sito del Software
+
+UAudio es un software desarrollado como parte de un proyecto universitario y est&#225; destinado a fines educativos e investigativos dentro de la comunidad universitaria.
+
+2. Licencia y Uso
+
+    Concesi&#243;n de Licencia: UAudio se proporciona bajo una licencia no exclusiva, revocable y no transferible. Puedes utilizar el software para fines educativos e investigativos dentro de la universidad.
+    Restricciones: No puedes copiar, modificar, distribuir, vender o arrendar ninguna parte del software. La ingenier&#237;a inversa o cualquier intento de extraer el c&#243;digo fuente est&#225; estrictamente prohibido.
+
+3. Propiedad e Propiedad Intelectual
+
+2.1 Propiedad: El software y todos los derechos de propiedad intelectual siguen siendo propiedad de la Universidad de Alicante. Reconoces que no se realiza ninguna transferencia de propiedad a ti bajo estos t&#233;rminos.
+2.2 Comentarios: Cualquier comentario, sugerencia o mejora que proporciones sobre el software puede ser utilizado por la Universidad de Alicante sin ninguna obligaci&#243;n hacia ti.
+
+4. Privacidad
+
+3.1. Recopilaci&#243;n de Datos: La Universidad de Alicante puede recopilar datos de uso anonimizados con el fin de mejorar el software. No se recopilar&#225; informaci&#243;n personal identificable sin tu consentimiento expl&#237;cito.
+3.2 Seguridad: La Universidad de Alicante tomar&#225; medidas razonables para asegurar el software y cualquier dato recopilado. Sin embargo, no puede garantizar seguridad absoluta.
+
+5. Terminaci&#243;n
+
+La Universidad de Alicante se reserva el derecho de terminar tu acceso al software en cualquier momento y por cualquier motivo, incluido el incumplimiento de estos t&#233;rminos.
+
+6. Descargos de Responsabilidad
+
+5.1 Sin Garant&#237;a: El software se proporciona "tal cual" sin ninguna garant&#237;a. La Universidad de Alicante no ofrece representaciones o garant&#237;as de ning&#250;n tipo con respecto al software, expresas o impl&#237;citas.
+5.2 Uso bajo tu propio riesgo: Utilizas el software bajo tu propio riesgo. La Universidad de Alicante no ser&#225; responsable por da&#241;os directos, indirectos, incidentales, consecuentes u otros que surjan del uso o la incapacidad de utilizar el software.
+
+7. Cambios en los T&#233;rminos
+
+La Universidad de Alicante se reserva el derecho de modificar o revisar estos t&#233;rminos en cualquier momento. Los t&#233;rminos actualizados ser&#225;n efectivos al publicarse.
+
+8. Ley Aplicable
+
+Estos t&#233;rminos se rigen por y se interpretan de acuerdo con las leyes Europeas y Espa&#241;a. Cualquier acci&#243;n legal derivada o relacionada con estos t&#233;rminos se llevar&#225; exclusivamente en los tribunales de la jurisdicci&#243;n correspondiente.</Message> 
+          </MultiMessageUnit> 
+        </ContentUnits>  
+        <layout:Grid containerType="grid"> 
+          <layout:Row> 
+            <layout:Cell colspan="12"> 
+              <layout:Unit unitId="mssu4"/> 
+            </layout:Cell>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row>  
+          <layout:Row> 
+            <layout:Cell colspan="12"/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row>  
+          <layout:Row> 
+            <layout:Cell colspan="12"/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row> 
+        </layout:Grid>  
+        <Link id="ln20" name="Volver" to="enu2" automaticCoupling="true" type="normal" validate="true" gr:bendpoints="-169,40,271,65;-238,51,202,76"/> 
+      </Page> 
+    </SiteView>  
+    <ModuleView id="mov1" name="Module Definitions"> 
+      <OperationModule id="opm11" name="Login" gr:x="0" gr:y="150"> 
+        <OperationUnits> 
+          <InputCollectorUnit id="icu1" gr:x="-5" gr:y="120"> 
+            <InputCollectorParameter id="icp1" name="userName_param"/>  
+            <InputCollectorParameter id="icp2" name="pass_param"/>  
+            <OKLink id="oln1" name="OKFlow1" to="lgu1"> 
+              <LinkParameter id="par1" name="userName_param_Username" source="icp1" target="lgu1.username"/>  
+              <LinkParameter id="par2" name="pass_param_Password" source="icp2" target="lgu1.password"/> 
+            </OKLink> 
+          </InputCollectorUnit>  
+          <LoginUnit id="lgu1" name="Login" gr:x="310" gr:y="135"> 
+            <OKLink id="oln2" name="OKFlow2" to="okcu1" automaticCoupling="true"/>  
+            <KOLink id="kln1" name="KOFlow1" to="kocu1"> 
+              <LinkParameter id="par3" name="Error Message_errorLogin_param" target="ocp1" sourceValue="Error al iniciar sesion. Email o contrase&#241;a incorrectos. Intente otra vez."/> 
+            </KOLink> 
+          </LoginUnit>  
+          <OKCollectorUnit id="okcu1" name="OK Port1" gr:x="455" gr:y="45"/>  
+          <KOCollectorUnit id="kocu1" name="KO Port1" gr:x="455" gr:y="170"> 
+            <OutputCollectorParameter id="ocp1" name="errorLogin_param"/> 
+          </KOCollectorUnit> 
+        </OperationUnits> 
+      </OperationModule>  
+      <OperationModule id="opm16" name="Modificar Usuario" gr:x="20" gr:y="0"> 
+        <OperationUnits> 
+          <InputCollectorUnit id="icu5" gr:x="15" gr:y="220"> 
+            <OKLink id="oln9" name="OKFlow7" to="mfu2"> 
+              <LinkParameter id="par52" name="email_param_email" source="icp10" target="mfu2.email"/>  
+              <LinkParameter id="par53" name="passwd_param_password" source="icp12" target="mfu2.password"/>  
+              <LinkParameter id="par54" name="name_param_userName" source="icp8" target="mfu2.userName"/> 
+            </OKLink>  
+            <InputCollectorParameter id="icp8" name="name_param"/>  
+            <InputCollectorParameter id="icp10" name="email_param"/>  
+            <InputCollectorParameter id="icp12" name="passwd_param"/> 
+          </InputCollectorUnit>  
+          <OKCollectorUnit id="okcu5" name="OK Port3" gr:x="660" gr:y="185"> 
+            <OutputCollectorParameter id="ocp3" name="CorrectMess" value="Modificacion de datos correcta."/> 
+          </OKCollectorUnit>  
+          <KOCollectorUnit id="kocu5" name="KO Port3" gr:x="660" gr:y="305"> 
+            <OutputCollectorParameter id="ocp4" name="ErrorMess" value="La modificaci&#243;n fall&#243;, intente otra vez."/> 
+          </KOCollectorUnit>  
+          <ModifyUnit gr:x="395" gr:y="230" id="mfu2" name="ModifyUs" entity="User"> 
+            <Selector id="su8" defaultPolicy="fill" booleanOperator="and"> 
+              <KeyCondition id="kcond7" name="KeyCondition7" predicate="in" implied="false"/> 
+            </Selector>  
+            <OKLink id="oln28" name="OKFlow8" to="okcu5" automaticCoupling="true"/>  
+            <KOLink id="kln16" name="KOFlow5" to="kocu5" automaticCoupling="true"/> 
+          </ModifyUnit> 
+        </OperationUnits> 
+      </OperationModule>  
+      <OperationModule id="opm17" name="Registro user" gr:x="10" gr:y="75"> 
+        <OperationUnits> 
+          <InputCollectorUnit id="icu6" gr:x="-75" gr:y="75"> 
+            <OKLink id="oln11" name="OKFlow4" to="cru4"> 
+              <LinkParameter id="par14" name="email_param_email" source="icp14" target="cru4.email"/>  
+              <LinkParameter id="par15" name="grupoDefault_param_Group.id(defaultGroup)" source="icp15" target="cru4.User2DefaultGroup.groupOID"/>  
+              <LinkParameter id="par16" name="pass_param_password" source="icp16" target="cru4.password"/>  
+              <LinkParameter id="par17" name="usuario_param_userName" source="icp13" target="cru4.userName"/> 
+            </OKLink>  
+            <InputCollectorParameter id="icp13" name="usuario_param"/>  
+            <InputCollectorParameter id="icp14" name="email_param"/>  
+            <InputCollectorParameter id="icp15" name="grupoDefault_param"/>  
+            <InputCollectorParameter id="icp16" name="pass_param"/>  
+            <InputCollectorParameter id="icp17" name="category_param"/> 
+          </InputCollectorUnit>  
+          <CreateUnit id="cru4" name="Alta usuario" gr:x="265" gr:y="105" entity="User"> 
+            <OKLink id="oln12" name="OKFlow5" to="okcu6" automaticCoupling="true"/>  
+            <KOLink id="kln6" name="KOFlow2" to="kocu6"> 
+              <LinkParameter id="par18" name="El usuario no se puede registrar_error_param" target="ocp2" sourceValue="El usuario no se ha podido registrar. Intente otra vez"/> 
+            </KOLink> 
+          </CreateUnit>  
+          <KOCollectorUnit id="kocu6" name="KO Port2" gr:x="480" gr:y="160"> 
+            <OutputCollectorParameter id="ocp2" name="error_param"/> 
+          </KOCollectorUnit>  
+          <OKCollectorUnit id="okcu6" name="OK Port2" gr:x="480" gr:y="40"/> 
+        </OperationUnits> 
+      </OperationModule>  
+      <OperationModule id="opm22" name="Logout" gr:x="5" gr:y="235"> 
+        <OperationUnits> 
+          <InputCollectorUnit id="icu11" gr:x="30" gr:y="60"> 
+            <OKLink id="oln21" name="OKFlow3" to="lou1" automaticCoupling="true"/> 
+          </InputCollectorUnit>  
+          <LogoutUnit id="lou1" name="Logout" gr:x="315" gr:y="70" siteView="sv1"/> 
+        </OperationUnits> 
+      </OperationModule> 
+    </ModuleView> 
   </WebModel>  
   <ServiceDataProviders/> 
 </WebProject>
