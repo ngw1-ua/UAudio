@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?webml version="4.0.3"?>
-<WebProject xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:db="http://www.webratio.com/2006/WebML/Database" xmlns:wrxsd="http://www.webratio.com/2012/WebML/WRXSD" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" xmlns:temp="http://www.webratio.com/2006/WebML/Temp" xmlns:bpm="http://www.webratio.com/2009/WebML/BPM" outputPath="${webapps_loc}/${project_name}" gr:showUnitContent="true" gr:showTooltip="true" httpPort="8080" httpsPort="8443" enableProjectDependencies="false" jobGroupName="WEBRATIO" wrTempNewProject="true" gr:useUMLStyle="true" control="amRiYzpwb3N0Z3Jlc3FsOi8vbG9jYWxob3N0OjU0MzIvVUFVRElPUGxheWxpc3Rz">  
+<WebProject xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:db="http://www.webratio.com/2006/WebML/Database" xmlns:wrxsd="http://www.webratio.com/2012/WebML/WRXSD" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" xmlns:temp="http://www.webratio.com/2006/WebML/Temp" xmlns:bpm="http://www.webratio.com/2009/WebML/BPM" outputPath="${webapps_loc}/${project_name}" gr:showUnitContent="true" gr:showTooltip="true" httpPort="8080" httpsPort="8443" enableProjectDependencies="true" jobGroupName="WEBRATIO" wrTempNewProject="true" gr:useUMLStyle="true" control="amRiYzpwb3N0Z3Jlc3FsOi8vbG9jYWxob3N0OjU0MzIvVUFVRElPUGxheWxpc3RzbG9naW4=">  
+  <ReferencedProject name="PureStyle" natureId="com.webratio.ide.styles.wrstylenature"/>  
   <DataModel> 
     <Entity id="User" name="User" duration="persistent" gr:x="20" gr:y="158" gr:hideAttributes="false" attributeOrder="userOID userName password email" db:database="db1" db:table="user"> 
       <Attribute name="id" id="userOID" type="integer" key="true" db:column="id"/>  
@@ -111,7 +112,7 @@
     </Relationship>  
     <db:Database id="db1" name="UAUDIO" type="PostgreSQL 9" url="jdbc:postgresql://localhost:5432/UAUDIO" username="postgres" cryptedPassword="true" password="Z29ka25vd3NpbXBhY3Q=" schema="public"/> 
   </DataModel>  
-  <WebModel defaultLocale="lcl1" layout:style="WebRatio" layout:inheritParameters="true" edtLvl="WebRatio Platform # 20231125" edtLvlCtrl="V2ViUmF0aW8gUGxhdGZvcm0gIyAyMDIzMTEyNUNvdW50cnlJU09DdHhQYXJhbUdyb3VwQ3R4UGFyYW1MYW5ndWFnZUlTT0N0eFBhcmFtVXNlckN0eFBhcmFt" homeSiteView="sv2"> 
+  <WebModel defaultLocale="lcl1" layout:style="WebRatio" layout:inheritParameters="true" edtLvl="WebRatio Platform # 20231125" edtLvlCtrl="V2ViUmF0aW8gUGxhdGZvcm0gIyAyMDIzMTEyNUNvdW50cnlJU09DdHhQYXJhbUdyb3VwQ3R4UGFyYW1MYW5ndWFnZUlTT0N0eFBhcmFtVXNlckN0eFBhcmFt" homeSiteView="sv4"> 
     <Locale id="lcl1" country="US" language="en"> 
       <PatternConfiguration type="boolean" pattern="yes|no"/>  
       <PatternConfiguration type="decimal" useNumberPattern="false" maxDecimal="3" minDecimal="0" minInteger="1" useThousandSeparator="true"/>  
@@ -128,7 +129,7 @@
     <ModuleView id="mov4" name="Operaciones"> 
       <OperationModule gr:x="160" gr:y="150" id="opm1" name="Crear o actualizar playlist"> 
         <OperationUnits> 
-          <InputCollectorUnit id="icu5" gr:x="-105" gr:y="150" linkOrder="ln20 ln21"> 
+          <InputCollectorUnit id="icu5" gr:x="-105" gr:y="150"> 
             <OKLink id="oln4" name="OKFlow4" to="inn1"> 
               <LinkParameter id="par3" name="id_param_Input" source="icp4" target="inn1.isnotnull"/> 
             </OKLink>  
@@ -136,12 +137,15 @@
             <InputCollectorParameter id="icp5" name="name_param"/>  
             <Link id="ln20" name="Flow20" to="cru2" type="transport" validate="true" gr:bendpoints="207,-96,-228,-16"> 
               <LinkParameter id="par4" name="id_param_id" source="icp4" target="cru2.att1"/>  
-              <LinkParameter id="par5" name="name_param_name" source="icp5" target="cru2.att2"/> 
+              <LinkParameter id="par5" name="name_param_name" source="icp5" target="cru2.att2"/>  
+              <LinkParameter id="par174" name="id_usu_User.id(PlaylistToUser)" source="icp32" target="cru2.role1.userOID"/> 
             </Link>  
             <Link id="ln21" name="Flow21" to="mfu1" type="transport" validate="true" gr:bendpoints="205,106,-240,36"> 
               <LinkParameter id="par7" name="id_param_KeyCondition3 [id]" source="icp4" target="kcond3.att1"/>  
-              <LinkParameter id="par8" name="name_param_name" source="icp5" target="mfu1.att2"/> 
-            </Link> 
+              <LinkParameter id="par8" name="name_param_name" source="icp5" target="mfu1.att2"/>  
+              <LinkParameter id="par175" name="id_usu_User.id(PlaylistToUser)" source="icp32" target="mfu1.role1.userOID"/> 
+            </Link>  
+            <InputCollectorParameter id="icp32" name="id_usu"/> 
           </InputCollectorUnit>  
           <CreateUnit gr:x="385" gr:y="70" id="cru2" name="crear playlist" entity="ent1"> 
             <OKLink id="oln6" name="OKFlow6" to="okcu2" automaticCoupling="true"/>  
@@ -166,6 +170,139 @@
             <OKLink id="oln5" name="OKFlow5" to="mfu1" automaticCoupling="true"/>  
             <KOLink id="kln4" name="KOFlow4" to="cru2" automaticCoupling="true"/> 
           </IsNotNullUnit> 
+        </OperationUnits> 
+      </OperationModule>  
+      <OperationModule id="opm10" name="Borrar usuario" gr:x="10" gr:y="80"> 
+        <OperationUnits> 
+          <InputCollectorUnit id="icu10" gr:x="30" gr:y="60"> 
+            <InputCollectorParameter id="icp23" name="id_param"/>  
+            <OKLink id="oln35" name="OKFlow23" to="dlu2"> 
+              <LinkParameter id="par142" name="id_param_KeyCondition6 [id]" source="icp23" target="kcond5.userOID"/> 
+            </OKLink> 
+          </InputCollectorUnit>  
+          <DeleteUnit id="dlu2" name="borrar_usuario" gr:x="325" gr:y="90" entity="User"> 
+            <Selector id="su7" defaultPolicy="fill" booleanOperator="and"> 
+              <KeyCondition id="kcond5" name="KeyCondition6" predicate="in" implied="false"/> 
+            </Selector>  
+            <OKLink id="oln36" name="OKFlow24" to="okcu9" automaticCoupling="true"/>  
+            <KOLink id="kln31" name="KOFlow13" to="kocu9" automaticCoupling="true"/> 
+          </DeleteUnit>  
+          <OKCollectorUnit id="okcu9" name="OK Port11" gr:x="600" gr:y="65"/>  
+          <KOCollectorUnit id="kocu9" name="KO Port11" gr:x="605" gr:y="185"/> 
+        </OperationUnits> 
+      </OperationModule>  
+      <OperationModule id="opm11" name="Login" gr:x="40" gr:y="285"> 
+        <OperationUnits> 
+          <InputCollectorUnit id="icu11" gr:x="35" gr:y="130"> 
+            <OKLink id="oln37" name="OKFlow7" to="lgu2"> 
+              <LinkParameter id="par143" name="userName_param_Username" source="icp24" target="lgu2.username"/>  
+              <LinkParameter id="par144" name="password_param_Password" source="icp25" target="lgu2.password"/> 
+            </OKLink>  
+            <InputCollectorParameter id="icp24" name="userName_param"/>  
+            <InputCollectorParameter id="icp25" name="password_param"/> 
+          </InputCollectorUnit>  
+          <LoginUnit id="lgu2" name="Login1" gr:x="355" gr:y="145"> 
+            <OKLink id="oln38" name="OKFlow8" to="okcu10" automaticCoupling="true"/>  
+            <KOLink id="kln32" name="KOFlow4" to="kocu10"> 
+              <LinkParameter id="par145" name="Error Message_error_login" target="ocp10" sourceValue="Error al iniciar sesi&#243;n"/> 
+            </KOLink> 
+          </LoginUnit>  
+          <OKCollectorUnit id="okcu10" name="OK Port4" gr:x="545" gr:y="70"/>  
+          <KOCollectorUnit id="kocu10" name="KO Port4" gr:x="545" gr:y="195"> 
+            <OutputCollectorParameter id="ocp10" name="error_login"/> 
+          </KOCollectorUnit> 
+        </OperationUnits> 
+      </OperationModule>  
+      <OperationModule id="opm12" name="Logout" gr:x="40" gr:y="350"> 
+        <OperationUnits> 
+          <InputCollectorUnit id="icu12" gr:x="30" gr:y="60"> 
+            <OKLink id="oln39" name="OKFlow10" to="lou2" automaticCoupling="true"/> 
+          </InputCollectorUnit>  
+          <LogoutUnit id="lou2" name="Logout" gr:x="325" gr:y="65"/> 
+        </OperationUnits> 
+      </OperationModule>  
+      <OperationModule id="opm13" name="Crear modulo" gr:x="725" gr:y="120"> 
+        <OperationUnits> 
+          <InputCollectorUnit id="icu13" gr:x="30" gr:y="95"> 
+            <OKLink id="oln40" name="OKFlow12" to="cru4"> 
+              <LinkParameter id="par146" name="name_param_moduleName" source="icp27" target="cru4.moduleName"/>  
+              <LinkParameter id="par147" name="id_param_moduleID" source="icp26" target="cru4.moduleID"/> 
+            </OKLink>  
+            <InputCollectorParameter id="icp26" name="id_param"/>  
+            <InputCollectorParameter id="icp27" name="name_param"/> 
+          </InputCollectorUnit>  
+          <CreateUnit id="cru4" name="crear_modulo" gr:x="325" gr:y="95" entity="Module"> 
+            <OKLink id="oln41" name="OKFlow11" to="okcu11" automaticCoupling="true"/>  
+            <KOLink id="kln33" name="KOFlow7" to="kocu11"> 
+              <LinkParameter id="par148" name="Error al crear el m&#243;dulo_error_param" target="ocp11" sourceValue="Error al crear el m&#243;dulo"/> 
+            </KOLink> 
+          </CreateUnit>  
+          <KOCollectorUnit id="kocu11" name="KO Port5" gr:x="510" gr:y="155"> 
+            <OutputCollectorParameter id="ocp11" name="error_param"/> 
+          </KOCollectorUnit>  
+          <OKCollectorUnit id="okcu11" name="OK Port5" gr:x="510" gr:y="55"/> 
+        </OperationUnits> 
+      </OperationModule>  
+      <OperationModule id="opm14" name="Borrar grupo" gr:x="920" gr:y="195"> 
+        <OperationUnits> 
+          <InputCollectorUnit id="icu14" gr:x="30" gr:y="60"> 
+            <OKLink id="oln42" name="OKFlow17" to="dlu3"> 
+              <LinkParameter id="par149" name="id_param_KeyCondition4 [id]" source="icp28" target="kcond6.groupOID"/> 
+            </OKLink>  
+            <InputCollectorParameter id="icp28" name="id_param"/> 
+          </InputCollectorUnit>  
+          <DeleteUnit id="dlu3" name="borrar_grupo" gr:x="335" gr:y="125" entity="Group"> 
+            <Selector id="su8" defaultPolicy="fill" booleanOperator="and"> 
+              <KeyCondition id="kcond6" name="KeyCondition4" predicate="in" implied="false"/> 
+            </Selector>  
+            <OKLink id="oln43" name="OKFlow18" to="okcu12" automaticCoupling="true"/>  
+            <KOLink id="kln34" name="KOFlow10" to="kocu12" automaticCoupling="true"/> 
+          </DeleteUnit>  
+          <OKCollectorUnit id="okcu12" name="OK Port8" gr:x="560" gr:y="65"/>  
+          <KOCollectorUnit id="kocu12" name="KO Port8" gr:x="560" gr:y="215"> 
+            <OutputCollectorParameter id="ocp12" name="error_param"/> 
+          </KOCollectorUnit> 
+        </OperationUnits> 
+      </OperationModule>  
+      <OperationModule id="opm15" name="Borrar modulo" gr:x="725" gr:y="195"> 
+        <OperationUnits> 
+          <InputCollectorUnit id="icu15" gr:x="30" gr:y="120"> 
+            <InputCollectorParameter id="icp29" name="id_param"/>  
+            <OKLink id="oln44" name="OKFlow13" to="dlu4"> 
+              <LinkParameter id="par150" name="id_param_KeyCondition3 [id]" source="icp29" target="kcond7.moduleOID"/> 
+            </OKLink> 
+          </InputCollectorUnit>  
+          <DeleteUnit id="dlu4" name="borrar_modulo" gr:x="370" gr:y="115" entity="Module"> 
+            <Selector id="su9" defaultPolicy="fill" booleanOperator="and"> 
+              <KeyCondition id="kcond7" name="KeyCondition3" predicate="in" implied="false"/> 
+            </Selector>  
+            <OKLink id="oln45" name="OKFlow14" to="okcu13" automaticCoupling="true"/>  
+            <KOLink id="kln35" name="KOFlow8" to="kocu13" automaticCoupling="true"/> 
+          </DeleteUnit>  
+          <OKCollectorUnit id="okcu13" name="OK Port6" gr:x="605" gr:y="65"/>  
+          <KOCollectorUnit id="kocu13" name="KO Port6" gr:x="605" gr:y="155"/> 
+        </OperationUnits> 
+      </OperationModule>  
+      <OperationModule id="opm16" name="Crear grupo" gr:x="920" gr:y="120"> 
+        <OperationUnits> 
+          <InputCollectorUnit id="icu16" gr:x="30" gr:y="60"> 
+            <InputCollectorParameter id="icp30" name="name_param"/>  
+            <InputCollectorParameter id="icp31" name="mod_param"/>  
+            <OKLink id="oln46" name="OKFlow15" to="cru5"> 
+              <LinkParameter id="par151" name="name_param_groupName" source="icp30" target="cru5.groupName"/>  
+              <LinkParameter id="par152" name="mod_param_Module.id(defaultModule)" source="icp31" target="cru5.Group2DefaultModule.moduleOID"/> 
+            </OKLink> 
+          </InputCollectorUnit>  
+          <CreateUnit id="cru5" name="crear_grupo" gr:x="350" gr:y="75" entity="Group"> 
+            <OKLink id="oln47" name="OKFlow16" to="okcu14" automaticCoupling="true"/>  
+            <KOLink id="kln36" name="KOFlow9" to="kocu14"> 
+              <LinkParameter id="par153" name="No se ha podido crear el grupo_error_param" target="ocp13" sourceValue="No se ha podido crear el grupo"/> 
+            </KOLink> 
+          </CreateUnit>  
+          <KOCollectorUnit id="kocu14" name="KO Port7" gr:x="540" gr:y="150"> 
+            <OutputCollectorParameter id="ocp13" name="error_param"/> 
+          </KOCollectorUnit>  
+          <OKCollectorUnit id="okcu14" name="OK Port7" gr:x="550" gr:y="70"/> 
         </OperationUnits> 
       </OperationModule>  
       <OperationModule gr:x="215" gr:y="280" id="opm2" name="Eliminar playlist"> 
@@ -216,7 +353,7 @@
           </ModifyUnit> 
         </OperationUnits> 
       </OperationModule>  
-      <OperationModule gr:x="585" gr:y="220" id="opm4" name="Quitar cancion de playlist"> 
+      <OperationModule gr:x="460" gr:y="195" id="opm4" name="Quitar cancion de playlist"> 
         <OperationUnits> 
           <InputCollectorUnit id="icu1" gr:x="-55" gr:y="190"> 
             <InputCollectorParameter id="icp6" name="id_cancion"/>  
@@ -243,11 +380,39 @@
             </KOLink> 
           </DisconnectUnit> 
         </OperationUnits> 
+      </OperationModule>  
+      <OperationModule id="opm9" name="Registro Usuario" gr:x="0" gr:y="0"> 
+        <OperationUnits> 
+          <InputCollectorUnit id="icu9" gr:x="35" gr:y="100"> 
+            <InputCollectorParameter id="icp18" name="username_param"/>  
+            <InputCollectorParameter id="icp19" name="email_param"/>  
+            <InputCollectorParameter id="icp20" name="password_param"/>  
+            <InputCollectorParameter id="icp21" name="category_param"/>  
+            <InputCollectorParameter id="icp22" name="user_group_param"/>  
+            <OKLink id="oln33" name="OKFlow1" to="cru3"> 
+              <LinkParameter id="par136" name="category_param_category" source="icp21" target="cru3.User#att7"/>  
+              <LinkParameter id="par137" name="email_param_email" source="icp19" target="cru3.email"/>  
+              <LinkParameter id="par138" name="password_param_password" source="icp20" target="cru3.password"/>  
+              <LinkParameter id="par139" name="username_param_userName" source="icp18" target="cru3.userName"/>  
+              <LinkParameter id="par140" name="user_group_param_Group.id(defaultGroup)" source="icp22" target="cru3.User2DefaultGroup.groupOID"/> 
+            </OKLink> 
+          </InputCollectorUnit>  
+          <CreateUnit id="cru3" name="RegistraUsuario" gr:x="450" gr:y="140" entity="User"> 
+            <OKLink id="oln34" name="OKFlow2" to="okcu8" automaticCoupling="true"/>  
+            <KOLink id="kln30" name="KOFlow1" to="kocu8"> 
+              <LinkParameter id="par141" name="El usuario no se puede registrar_error_param" target="ocp9" sourceValue="El usuario no se puede registrar"/> 
+            </KOLink> 
+          </CreateUnit>  
+          <OKCollectorUnit id="okcu8" name="OK Port1" gr:x="775" gr:y="95"/>  
+          <KOCollectorUnit id="kocu8" name="KO Port1" gr:x="775" gr:y="210"> 
+            <OutputCollectorParameter id="ocp9" name="error_param"/> 
+          </KOCollectorUnit> 
+        </OperationUnits> 
       </OperationModule> 
     </ModuleView>  
-    <SiteView id="sv2" name="Playlists" landmarks="area1 area4" homePage="page19"> 
+    <SiteView id="sv2" name="Playlists" landmarks="area1 area4 page2 page3" layout:style="PureStyle" layout:errorPage="WRDefault/Default" homePage="page2"> 
       <OperationUnits/>  
-      <Page id="page28" name="Rep" ajaxEnabled="true" gr:x="1295" gr:y="335" layout:pageLayout="StoreTemplates/Audio"> 
+      <Page id="page28" name="Rep" ajaxEnabled="true" gr:x="1670" gr:y="340" layout:pageLayout="PureStyle/Audio"> 
         <ContentUnits/>  
         <layout:Grid containerType="grid"> 
           <layout:Row> 
@@ -266,10 +431,95 @@
           </layout:Row> 
         </layout:Grid>  
         <Variable id="var5" name="songID" type="integer"/>  
-        <Variable id="var6" name="artist"/>  
-        <Variable id="var7" name="songName"/> 
+        <Variable id="var6" name="artist" type="string"/>  
+        <Variable id="var7" name="songName" type="string"/> 
       </Page>  
-      <Area gr:x="-80" gr:y="-190" id="area1" name="Playlists" landmark="true" defaultPage="page5"> 
+      <Page gr:x="210" gr:y="385" id="page3" name="About us" layout:pageLayout="PureStyle/Aboutuspage" landmark="true"> 
+        <ContentUnits/>  
+        <layout:Grid containerType="grid"> 
+          <layout:Row> 
+            <layout:Cell colspan="12"/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row> 
+        </layout:Grid> 
+      </Page>  
+      <Page id="page2" name="Home" landmark="true" layout:pageLayout="PureStyle/Home" gr:x="545" gr:y="385"> 
+        <ContentUnits> 
+          <IndexUnit id="inu1" name="Top Canciones" gr:x="0" gr:y="0" entity="ent2" displayAttributes="att3 count(role4.att1) role5.att8" maxResults="10" linkOrder="ln1"> 
+            <Selector id="su5" defaultPolicy="fill" booleanOperator="and"> 
+              <AttributesCondition id="acond1" name="MINIMO" predicate="gt" booleanOperator="or" implied="false" attributes="count(role4.att1)" value="0"/> 
+            </Selector>  
+            <SortAttribute attribute="count(role4.att1)" order="descending"/>  
+            <Link id="ln1" name="Flow1" to="page28" type="normal" validate="true"> 
+              <LinkParameter id="par12" name="id_songID" source="data[].att3" targetVariable="var5"/>  
+              <LinkParameter id="par13" name="name_songName" source="data[].att4" targetVariable="var7"/>  
+              <LinkParameter id="par17" name="CancionToArtistas.name_artist" source="data[].role5$att8" targetVariable="var6"/> 
+            </Link> 
+          </IndexUnit>  
+          <IndexUnit id="inu2" name="Novedades" gr:x="70" gr:y="135" entity="ent2" displayAttributes="att4 role5.att8" maxResults="10" linkOrder="ln3"> 
+            <SortAttribute attribute="att3" order="descending"/>  
+            <Link id="ln3" name="Flow3" to="page28" type="normal" validate="true"> 
+              <LinkParameter id="par14" name="id_songID" source="data[].att3" targetVariable="var5"/>  
+              <LinkParameter id="par15" name="name_songName" source="data[].att4" targetVariable="var7"/>  
+              <LinkParameter id="par16" name="CancionToArtistas.name_artist" source="data[].role5$att8" targetVariable="var6"/> 
+            </Link> 
+          </IndexUnit> 
+        </ContentUnits>  
+        <layout:Grid containerType="grid"> 
+          <layout:Row> 
+            <layout:Cell colspan="12"> 
+              <layout:Unit unitId="inu1" layout:unitLayout="PureStyle/TopCancionesSimpleList"> 
+                <layout:Link link="ln1"/>  
+                <layout:Attribute attribute="att3"/>  
+                <layout:Attribute attribute="count(role4.att1)"/>  
+                <layout:Attribute attribute="role5.att8"/> 
+              </layout:Unit> 
+            </layout:Cell>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row>  
+          <layout:Row> 
+            <layout:Cell colspan="12"> 
+              <layout:Unit unitId="inu2" layout:unitLayout="PureStyle/TopCancionesSimpleList"> 
+                <layout:Link link="ln3"/>  
+                <layout:Attribute attribute="att4"/>  
+                <layout:Attribute attribute="role5.att8"/> 
+              </layout:Unit> 
+            </layout:Cell>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/>  
+            <layout:Cell/> 
+          </layout:Row> 
+        </layout:Grid> 
+      </Page>  
+      <Area gr:x="295" gr:y="-185" id="area1" name="Playlists" landmark="true" defaultPage="page5" landmarks="page5"> 
         <OperationUnits> 
           <ModuleInstanceUnit id="miu3" gr:x="0" gr:y="150" action="true" moduleId="opm1"> 
             <OKLink id="oln12" name="OKFlow3" to="page5" automaticCoupling="true"/>  
@@ -290,7 +540,7 @@
             </KOLink> 
           </ModuleInstanceUnit> 
         </OperationUnits>  
-        <Page id="page5" name="Playlist Home" gr:x="310" gr:y="0"> 
+        <Page id="page5" name="Playlist Home" gr:x="310" gr:y="0" landmark="true"> 
           <ContentUnits> 
             <MultiMessageUnit id="mssu6" name="Bienvenidx a la secci&#243;n de playlists" gr:x="0" gr:y="0"> 
               <Message xml:space="preserve">En esta pantalla podr&#225;s gestionar tus listas de reproducci&#243;n</Message> 
@@ -298,15 +548,19 @@
             <EntryUnit id="enu6" name="Crear playlist" linkOrder="ln7" gr:x="60" gr:y="165" entity="ent1" fieldOrder="fld3"> 
               <Link id="ln7" name="Crear" to="miu3" type="normal" validate="true"> 
                 <LinkParameter id="par31" name="id_id_param" source="fld5" target="miu3.icp4"/>  
-                <LinkParameter id="par32" name="Nombre_name_param" source="fld3" target="miu3.icp5"/> 
+                <LinkParameter id="par32" name="Nombre_name_param" source="fld3" target="miu3.icp5"/>  
+                <LinkParameter id="par177" name="id_usu_id_usu" source="fld83" target="miu3.icp32"/> 
               </Link>  
               <Field id="fld3" name="Nombre" type="string" modifiable="true" preloaded="true"/>  
-              <Field id="fld5" name="id" type="string" modifiable="false" hidden="true" preloaded="true"/> 
+              <Field id="fld5" name="id" type="string" modifiable="false" hidden="true" preloaded="true"/>  
+              <Field id="fld83" name="id_usu" type="string" modifiable="false" preloaded="true" hidden="true"/> 
             </EntryUnit>  
             <MultiMessageUnit id="mssu7" name="Error de borrado" gr:x="280" gr:y="315"/>  
             <MultiMessageUnit id="mssu8" name="Error de creacion" gr:x="110" gr:y="310"/>  
-            <HierarchicalIndexUnit id="hinu3" name="Tus playlists" linkOrder="ln10 ln34 ln45 ln2" gr:x="260" gr:y="155" sortable="false" entity="ent1" displayAttributes="att2"> 
-              <Selector id="su4" defaultPolicy="fill" booleanOperator="and"/>  
+            <HierarchicalIndexUnit id="hinu3" name="Tus playlists" linkOrder="ln10 ln34 ln45 ln2" gr:x="270" gr:y="120" sortable="false" entity="ent1" displayAttributes="att2"> 
+              <Selector id="su4" defaultPolicy="fill" booleanOperator="and"> 
+                <AttributesCondition id="acond3" name="usu_id" predicate="eq" booleanOperator="or" implied="false" attributes="role1.userOID"/> 
+              </Selector>  
               <HierarchicalIndexLevel id="hiulvl3" name="Canciones" entity="ent2" role="role3" displayAttributes="att4"/>  
               <Link id="ln10" to="miu4" type="normal" validate="true" name="&#10008;"> 
                 <LinkParameter id="par33" name="id(Tus playlists)_id_param" source="data[].att1" target="miu4.icp3"/> 
@@ -326,7 +580,15 @@
                 <LinkParameter id="par9" name="id(Tus playlists)_Key Condition [id]" source="data[].att1" target="enu6.att1"/> 
               </Link> 
             </HierarchicalIndexUnit>  
-            <MultiMessageUnit gr:x="315" gr:y="20" id="mssu13" name="Error al quitar cancion"/> 
+            <MultiMessageUnit gr:x="315" gr:y="20" id="mssu13" name="Error al quitar cancion"/>  
+            <GetUnit gr:x="505" gr:y="315" id="gtu2" name="Get2" contextParameters="UserCtxParam"> 
+              <Link id="ln108" name="Flow108" to="hinu3" type="transport" validate="true"> 
+                <LinkParameter id="par173" name="UserCtxParam.id_usu_id [Tus playlists]" source="gtu2.UserCtxParam" target="acond3"/> 
+              </Link>  
+              <Link id="ln109" name="Flow109" to="enu6" type="transport" validate="true"> 
+                <LinkParameter id="par176" name="UserCtxParam.id_id_usu" source="gtu2.UserCtxParam" target="fld83_slot"/> 
+              </Link> 
+            </GetUnit> 
           </ContentUnits>  
           <layout:Grid containerType="grid"> 
             <layout:Row> 
@@ -480,7 +742,7 @@
           </layout:Grid> 
         </Page> 
       </Area>  
-      <Area id="area4" name="Buscar" landmark="true" gr:x="250" gr:y="345" defaultPage="page19"> 
+      <Area id="area4" name="Buscar" landmark="true" gr:x="675" gr:y="755" landmarks="page20" defaultPage="page19"> 
         <OperationUnits> 
           <ModuleInstanceUnit id="miu6" gr:x="105" gr:y="10" action="true" moduleId="opm3"> 
             <OKLink id="oln15" name="OKFlow11" to="page5" automaticCoupling="true"/>  
@@ -587,7 +849,68 @@
             </layout:Row> 
           </layout:Grid> 
         </Page>  
-        <Page id="page20" name="Artistas" gr:x="20" gr:y="535"> 
+        <Page id="page16" name="Meter cancion a playlist" gr:x="0" gr:y="210"> 
+          <ContentUnits> 
+            <SelectorUnit id="seu3" name="Selector de playlist" gr:x="0" gr:y="0" entity="ent1" distinctAttributes="att2"> 
+              <Link id="ln23" name="Flow3" to="enu11" type="transport" validate="true"> 
+                <LinkParameter id="par50" name="name_playlist [label]" source="att2Array" target="sfld3_label"/>  
+                <LinkParameter id="par51" name="id_playlist [output]" source="att1Array" target="sfld3_output"/> 
+              </Link>  
+              <Selector id="su10" defaultPolicy="fill" booleanOperator="and"> 
+                <AttributesCondition id="acond2" name="usu_id" predicate="eq" booleanOperator="or" implied="false" attributes="role1.userOID"/> 
+              </Selector> 
+            </SelectorUnit>  
+            <EntryUnit id="enu11" name="Guardar en lista de reproducci&#243;n" linkOrder="ln24" gr:x="300" gr:y="20"> 
+              <Field id="fld10" name="id" type="string" modifiable="false" hidden="true" preloaded="true"/>  
+              <SelectionField id="sfld3" name="playlist" type="string"/>  
+              <Link id="ln24" name="Guardar" to="miu6" type="normal" validate="true"> 
+                <LinkParameter id="par52" name="id_id_cancion" source="fld10" target="miu6.icp1"/>  
+                <LinkParameter id="par53" name="playlist_id_playlist" source="sfld3" target="miu6.icp2"/> 
+              </Link> 
+            </EntryUnit>  
+            <GetUnit gr:x="0" gr:y="175" id="gtu1" name="Get1" contextParameters="UserCtxParam"> 
+              <Link id="ln107" name="Flow107" to="seu3" type="transport" validate="true"> 
+                <LinkParameter id="par172" name="UserCtxParam.id_usu_id" source="gtu1.UserCtxParam" target="acond2"/> 
+              </Link> 
+            </GetUnit> 
+          </ContentUnits>  
+          <layout:Grid containerType="grid"> 
+            <layout:Row> 
+              <layout:Cell colspan="12"> 
+                <layout:Unit unitId="enu11"> 
+                  <layout:Field field="sfld3"/>  
+                  <layout:Link link="ln24"/> 
+                </layout:Unit> 
+              </layout:Cell>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/> 
+            </layout:Row>  
+            <layout:Row> 
+              <layout:Cell colspan="12"/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/> 
+            </layout:Row> 
+          </layout:Grid> 
+        </Page>  
+        <Page id="page20" name="Artistas" gr:x="20" gr:y="535" landmark="true"> 
           <ContentUnits> 
             <PowerIndexUnit id="pwu6" name="Artistas obtenidos" linkOrder="ln30" gr:x="255" gr:y="0" sortable="true" checkable="false" useCountQuery="false" entity="ent3" displayAttributes="att8" customDescriptor="false"> 
               <Selector id="su13" defaultPolicy="fill" booleanOperator="and"> 
@@ -632,103 +955,6 @@
                   <layout:Attribute attribute="att10"/>  
                   <layout:Link link="ln31"/> 
                 </layout:Unit> 
-              </layout:Cell>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/> 
-            </layout:Row> 
-          </layout:Grid> 
-        </Page>  
-        <Page id="page16" name="Meter cancion a playlist" gr:x="0" gr:y="210"> 
-          <ContentUnits> 
-            <SelectorUnit id="seu3" name="Selector de playlist" gr:x="0" gr:y="0" entity="ent1" distinctAttributes="att2"> 
-              <Link id="ln23" name="Flow3" to="enu11" type="transport" validate="true"> 
-                <LinkParameter id="par50" name="name_playlist [label]" source="att2Array" target="sfld3_label"/>  
-                <LinkParameter id="par51" name="id_playlist [output]" source="att1Array" target="sfld3_output"/> 
-              </Link> 
-            </SelectorUnit>  
-            <EntryUnit id="enu11" name="Guardar en lista de reproducci&#243;n" linkOrder="ln24" gr:x="300" gr:y="20"> 
-              <Field id="fld10" name="id" type="string" modifiable="false" hidden="true" preloaded="true"/>  
-              <SelectionField id="sfld3" name="playlist" type="string"/>  
-              <Link id="ln24" name="Guardar" to="miu6" type="normal" validate="true"> 
-                <LinkParameter id="par52" name="id_id_cancion" source="fld10" target="miu6.icp1"/>  
-                <LinkParameter id="par53" name="playlist_id_playlist" source="sfld3" target="miu6.icp2"/> 
-              </Link> 
-            </EntryUnit> 
-          </ContentUnits>  
-          <layout:Grid containerType="grid"> 
-            <layout:Row> 
-              <layout:Cell colspan="12"> 
-                <layout:Unit unitId="enu11"> 
-                  <layout:Field field="sfld3"/>  
-                  <layout:Link link="ln24"/> 
-                </layout:Unit> 
-              </layout:Cell>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/> 
-            </layout:Row> 
-          </layout:Grid> 
-        </Page>  
-        <Page id="page18" name="Canciones" gr:x="510" gr:y="0"> 
-          <ContentUnits> 
-            <PowerIndexUnit id="pwu5" name="Canciones encontradas" linkOrder="ln26 ln43" gr:x="195" gr:y="0" sortable="true" checkable="false" useCountQuery="false" entity="ent2" displayAttributes="att4 role10.att10 role5.att8"> 
-              <Selector id="su12" defaultPolicy="fill" booleanOperator="and"> 
-                <AttributesCondition id="acond5" name="name_con_song" predicate="eq" booleanOperator="or" implied="false" attributes="att4"/> 
-              </Selector>  
-              <Link id="ln26" name="&#9733;  " to="enu11" type="normal" validate="true"> 
-                <LinkParameter id="par55" name="id_id" source="data[].att3" target="fld10_slot"/> 
-              </Link>  
-              <Link id="ln43" name="  &#9654;" to="page28" type="normal" validate="true"> 
-                <LinkParameter id="par83" name="CancionToArtistas.name_artist" source="data[].role5$att8" targetVariable="var6"/>  
-                <LinkParameter id="par84" name="id_songID" source="data[].att3" targetVariable="var5"/>  
-                <LinkParameter id="par85" name="name_songName" source="data[].att4" targetVariable="var7"/> 
-              </Link> 
-            </PowerIndexUnit>  
-            <MultiMessageUnit id="mssu11" name="Error de inserci&#243;n" gr:x="0" gr:y="0"/> 
-          </ContentUnits>  
-          <layout:Grid containerType="grid"> 
-            <layout:Row> 
-              <layout:Cell colspan="12"> 
-                <layout:Unit unitId="pwu5"> 
-                  <layout:Attribute attribute="att4"/>  
-                  <layout:Attribute attribute="role10.att10"/>  
-                  <layout:Attribute attribute="role5.att8"/>  
-                  <layout:Link link="ln26"/>  
-                  <layout:Link link="ln43"/> 
-                </layout:Unit> 
-              </layout:Cell>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/>  
-              <layout:Cell/> 
-            </layout:Row>  
-            <layout:Row> 
-              <layout:Cell colspan="12"> 
-                <layout:Unit unitId="mssu11"/> 
               </layout:Cell>  
               <layout:Cell/>  
               <layout:Cell/>  
@@ -871,8 +1097,136 @@
               <layout:Cell/> 
             </layout:Row> 
           </layout:Grid> 
+        </Page>  
+        <Page id="page18" name="Canciones" gr:x="510" gr:y="0" layout:style="PureStyle" linkVisibilityPolicy="always"> 
+          <ContentUnits> 
+            <PowerIndexUnit id="pwu5" name="Canciones encontradas" linkOrder="ln26 ln43" gr:x="195" gr:y="0" sortable="true" checkable="false" useCountQuery="false" entity="ent2" displayAttributes="att4 role10.att10 role5.att8"> 
+              <Selector id="su12" defaultPolicy="fill" booleanOperator="and"> 
+                <AttributesCondition id="acond5" name="name_con_song" predicate="eq" booleanOperator="or" implied="false" attributes="att4"/> 
+              </Selector>  
+              <Link id="ln26" name="&#9733;  " to="enu11" type="normal" validate="true"> 
+                <LinkParameter id="par55" name="id_id" source="data[].att3" target="fld10_slot"/> 
+              </Link>  
+              <Link id="ln43" name="  &#9654;" to="page28" type="normal" validate="true"> 
+                <LinkParameter id="par83" name="CancionToArtistas.name_artist" source="data[].role5$att8" targetVariable="var6"/>  
+                <LinkParameter id="par84" name="id_songID" source="data[].att3" targetVariable="var5"/>  
+                <LinkParameter id="par85" name="name_songName" source="data[].att4" targetVariable="var7"/> 
+              </Link> 
+            </PowerIndexUnit>  
+            <MultiMessageUnit id="mssu11" name="Error de inserci&#243;n" gr:x="0" gr:y="0"/> 
+          </ContentUnits>  
+          <layout:Grid containerType="grid"> 
+            <layout:Row> 
+              <layout:Cell colspan="12"> 
+                <layout:Unit unitId="pwu5" layout:style="PureStyle"> 
+                  <layout:Attribute attribute="att4"/>  
+                  <layout:Attribute attribute="role10.att10"/>  
+                  <layout:Attribute attribute="role5.att8"/>  
+                  <layout:Link link="ln26"/>  
+                  <layout:Link link="ln43"/> 
+                </layout:Unit> 
+              </layout:Cell>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/> 
+            </layout:Row>  
+            <layout:Row> 
+              <layout:Cell colspan="12"> 
+                <layout:Unit unitId="mssu11"/> 
+              </layout:Cell>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/> 
+            </layout:Row> 
+          </layout:Grid> 
         </Page> 
       </Area> 
-    </SiteView> 
-  </WebModel> 
-</WebProject>
+    </SiteView>  
+    <SiteView id="sv4" name="login" landmarks="area8" homePage="page55" layout:style="PureStyle" layout:errorPage="WRDefault/Default"> 
+      <OperationUnits> 
+        <ModuleInstanceUnit id="miu27" gr:x="450" gr:y="500" action="true" moduleId="opm9"> 
+          <KOLink id="kln37" name="KOFlow6" to="mssu49"> 
+            <LinkParameter id="par163" name="error_param_Shown Messages" source="mov1#opm1#kocu1#ocp2" target="mssu49.shownMessages"/> 
+          </KOLink>  
+          <OKLink id="oln48" name="OKFlow9" to="page54" automaticCoupling="true"/> 
+        </ModuleInstanceUnit>  
+        <ModuleInstanceUnit id="miu28" gr:x="225" gr:y="505" action="true" moduleId="opm11"> 
+          <KOLink id="kln38" name="KOFlow5" to="mssu47"> 
+            <LinkParameter id="par164" name="error_login_Shown Messages" source="mov1#opm4#kocu4#ocp1" target="mssu47.shownMessages"/> 
+          </KOLink> 
+        </ModuleInstanceUnit> 
+      </OperationUnits>  
+      <Area id="area8" name="Acerca de" defaultPage="page55" landmark="true" gr:x="135" gr:y="50"> 
+        <OperationUnits/>  
+        <Page id="page54" name="login" gr:x="0" gr:y="160"> 
+          <ContentUnits> 
+            <EntryUnit id="enu36" name="Login" linkOrder="ln101" gr:x="165" gr:y="0"> 
+              <Field id="fld77" name="User" type="string" modifiable="true"/>  
+              <Field id="fld78" name="Password" type="string" modifiable="true"/>  
+              <Link id="ln101" name="OK" to="miu28" type="normal" validate="true"> 
+                <LinkParameter id="par170" name="Password_password_param" source="fld78" target="miu28.icp25"/>  
+                <LinkParameter id="par171" name="User_userName_param" source="fld77" target="miu28.icp24"/> 
+              </Link> 
+            </EntryUnit>  
+            <MultiMessageUnit id="mssu47" name="Error de acceso" gr:x="0" gr:y="80"/> 
+          </ContentUnits>  
+          <layout:Grid containerType="grid"> 
+            <layout:Row> 
+              <layout:Cell colspan="12"> 
+                <layout:Unit unitId="enu36"> 
+                  <layout:Field field="fld77"/>  
+                  <layout:Field field="fld78"/>  
+                  <layout:Link link="ln101"/> 
+                </layout:Unit> 
+              </layout:Cell>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/> 
+            </layout:Row>  
+            <layout:Row> 
+              <layout:Cell colspan="12"> 
+                <layout:Unit unitId="mssu47"/> 
+              </layout:Cell>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/>  
+              <layout:Cell/> 
+            </layout:Row> 
+          </layout:Grid> 
+        </Page>  
+        <Page id="page55" name="Welcome" gr:x="135" gr:y="0"> 
+          <ContentUnits> 
+            <MultiMessageUnit id="mssu48" name="Entrada" linkOrder="ln102 ln103" gr:x="0" gr:y="0"> 
+              <Message xml:space="preserve">Bienvenido a UAUDIO, reg&#237;strate para darte de alta o haz login para entrar al sistema y empieza disfrutar de tus canciones favoritas
+</Message>                <Link id="ln102" name="Registrarse" to="page56" type="normal" automaticCoupling="true" validate="true"/>                <Link id="ln103" name="Login" to="page54" type="normal" automaticCoupling="true" validate="true"/>             </MultiMessageUnit>           </ContentUnits>            <layout:Grid containerType="grid">             <layout:Row>               <layout:Cell colspan="12">                 <layout:Unit unitId="mssu48">                   <layout:Link link="ln102"/>                    <layout:Link link="ln103"/>                 </layout:Unit>               </layout:Cell>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>             </layout:Row>           </layout:Grid>         </Page>          <Page id="page56" name="usuarios" gr:x="355" gr:y="115">           <ContentUnits>             <EntryUnit id="enu37" name="Registro" linkOrder="ln104" gr:x="0" gr:y="10">               <Field id="fld79" name="UserName" type="string" modifiable="true" preloaded="true"/>                <Field id="fld80" name="Password" type="password" modifiable="true" preloaded="true"/>                <Field id="fld81" name="Category" type="string" modifiable="false" preloaded="true" hidden="true"/>                <Field id="fld82" name="Email" type="string" modifiable="true" preloaded="true"/>                <SelectionField id="sfld1" name="UserGroup" type="string"/>                <Link id="ln104" name="OK" to="miu27" type="normal" validate="true">                 <LinkParameter id="par165" name="Category_category_param" source="fld81" target="miu27.icp21"/>                  <LinkParameter id="par166" name="Email_email_param" source="fld82" target="miu27.icp19"/>                  <LinkParameter id="par167" name="Password_password_param" source="fld80" target="miu27.icp20"/>                  <LinkParameter id="par168" name="UserGroup_user_group_param" source="sfld1" target="miu27.icp22"/>                  <LinkParameter id="par169" name="UserName_username_param" source="fld79" target="miu27.icp18"/>               </Link>             </EntryUnit>              <SelectorUnit id="seu1" name="grupos" gr:x="175" gr:y="0" entity="Group">               <Link id="ln105" name="Flow20" to="enu37" type="transport" validate="true">                 <LinkParameter id="par161" name="groupName_UserGroup [label]" source="groupNameArray" target="sfld1_label"/>                  <LinkParameter id="par162" name="id_UserGroup [output]" source="groupOIDArray" target="sfld1_output"/>               </Link>             </SelectorUnit>              <MultiMessageUnit id="mssu49" name="Error de registro" gr:x="100" gr:y="110"/>           </ContentUnits>            <layout:Grid containerType="grid">             <layout:Row>               <layout:Cell colspan="12">                 <layout:Unit unitId="enu37">                   <layout:Link link="ln104"/>                    <layout:Field field="fld79"/>                    <layout:Field field="fld80"/>                    <layout:Field field="fld82"/>                    <layout:Field field="sfld1"/>                 </layout:Unit>               </layout:Cell>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>             </layout:Row>              <layout:Row>               <layout:Cell colspan="12">                 <layout:Unit unitId="mssu49"/>               </layout:Cell>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>                <layout:Cell/>             </layout:Row>           </layout:Grid>         </Page>       </Area>     </SiteView>   </WebModel></WebProject>
