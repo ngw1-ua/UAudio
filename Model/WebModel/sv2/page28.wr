@@ -1,0 +1,22 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv2#page28" name="Rep" ajaxEnabled="true" gr:x="1670" gr:y="340" layout:pageLayout="PureStyle/Audio">
+  <ContentUnits/>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Variable id="sv2#page28#var5" name="songID" type="integer"/>
+  <Variable id="sv2#page28#var6" name="artist" type="string"/>
+  <Variable id="sv2#page28#var7" name="songName" type="string"/>
+</Page>

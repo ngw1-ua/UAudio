@@ -1,0 +1,25 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="445" gr:y="130" id="mov4#opm3" name="A&#241;adir cancion a playlist">
+  <OperationUnits>
+    <InputCollectorUnit id="mov4#opm3#icu7" gr:x="-70" gr:y="105">
+      <InputCollectorParameter id="mov4#opm3#icu7#icp1" name="id_cancion"/>
+      <InputCollectorParameter id="mov4#opm3#icu7#icp2" name="id_playlist"/>
+      <OKLink id="mov4#opm3#icu7#oln9" name="OKFlow9" to="mov4#opm3#mfu2">
+        <LinkParameter id="mov4#opm3#icu7#oln9#par1" name="id_cancion_KeyCondition1 [id]" source="mov4#opm3#icu7#icp1" target="mov4#opm3#mfu2#su1#kcond1.ent2#att3"/>
+        <LinkParameter id="mov4#opm3#icu7#oln9#par2" name="id_playlist_Playlist.id(CancionToPlaylist)" source="mov4#opm3#icu7#icp2" target="mov4#opm3#mfu2.rel2#role4.ent1#att1"/>
+      </OKLink>
+    </InputCollectorUnit>
+    <OKCollectorUnit gr:x="500" gr:y="45" id="mov4#opm3#okcu3" name="OK Port3"/>
+    <KOCollectorUnit gr:x="500" gr:y="175" id="mov4#opm3#kocu3" name="KO Port3">
+      <OutputCollectorParameter id="mov4#opm3#kocu3#ocp3" name="error"/>
+    </KOCollectorUnit>
+    <ModifyUnit gr:x="280" gr:y="100" id="mov4#opm3#mfu2" name="Meter a playlist" entity="ent2">
+      <Selector id="mov4#opm3#mfu2#su1" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov4#opm3#mfu2#su1#kcond1" name="KeyCondition1" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov4#opm3#mfu2#oln10" name="OKFlow10" to="mov4#opm3#okcu3" automaticCoupling="true"/>
+      <KOLink id="mov4#opm3#mfu2#kln7" name="KOFlow7" to="mov4#opm3#kocu3">
+        <LinkParameter id="mov4#opm3#mfu2#kln7#par10" name="Error al introducir la canci&#243;n en la playlist_error" sourceValue="Error al introducir la canci&#243;n en la playlist" target="mov4#opm3#kocu3#ocp3"/>
+      </KOLink>
+    </ModifyUnit>
+  </OperationUnits>
+</OperationModule>

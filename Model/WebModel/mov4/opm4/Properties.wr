@@ -1,0 +1,28 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="585" gr:y="220" id="mov4#opm4" name="Quitar cancion de playlist">
+  <OperationUnits>
+    <InputCollectorUnit id="mov4#opm4#icu1" gr:x="-55" gr:y="190">
+      <InputCollectorParameter id="mov4#opm4#icu1#icp6" name="id_cancion"/>
+      <InputCollectorParameter id="mov4#opm4#icu1#icp7" name="id_playlist"/>
+      <OKLink id="mov4#opm4#icu1#oln21" name="OKFlow21" to="mov4#opm4#dcnu1">
+        <LinkParameter id="mov4#opm4#icu1#oln21#par67" name="id_cancion_KeyCondition10 [id] [Cancion] [Target]" source="mov4#opm4#icu1#icp6" target="mov4#opm4#dcnu1#su19#kcond10.ent2#att3"/>
+        <LinkParameter id="mov4#opm4#icu1#oln21#par68" name="id_playlist_KeyCondition9 [id] [Playlist] [Source]" source="mov4#opm4#icu1#icp7" target="mov4#opm4#dcnu1#su18#kcond9.ent1#att1"/>
+      </OKLink>
+    </InputCollectorUnit>
+    <OKCollectorUnit gr:x="505" gr:y="75" id="mov4#opm4#okcu4" name="OK Port4"/>
+    <KOCollectorUnit gr:x="505" gr:y="315" id="mov4#opm4#kocu4" name="KO Port4">
+      <OutputCollectorParameter id="mov4#opm4#kocu4#ocp4" name="Error"/>
+    </KOCollectorUnit>
+    <DisconnectUnit gr:x="245" gr:y="175" id="mov4#opm4#dcnu1" name="Borrar canci&#243;n de playlist" relationship="rel2#role3">
+      <SourceSelector id="mov4#opm4#dcnu1#su18" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov4#opm4#dcnu1#su18#kcond9" name="KeyCondition9" predicate="in" implied="false"/>
+      </SourceSelector>
+      <TargetSelector id="mov4#opm4#dcnu1#su19" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov4#opm4#dcnu1#su19#kcond10" name="KeyCondition10" predicate="in" implied="false"/>
+      </TargetSelector>
+      <OKLink id="mov4#opm4#dcnu1#oln22" name="OKFlow22" to="mov4#opm4#okcu4" automaticCoupling="true"/>
+      <KOLink id="mov4#opm4#dcnu1#kln14" name="KOFlow14" to="mov4#opm4#kocu4">
+        <LinkParameter id="mov4#opm4#dcnu1#kln14#par69" name="Error al borrar la canci&#243;n de la playlist_Error" sourceValue="Error al borrar la canci&#243;n de la playlist" target="mov4#opm4#kocu4#ocp4"/>
+      </KOLink>
+    </DisconnectUnit>
+  </OperationUnits>
+</OperationModule>

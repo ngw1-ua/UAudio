@@ -1,0 +1,42 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="160" gr:y="150" id="mov4#opm1" name="Crear o actualizar playlist">
+  <OperationUnits>
+    <InputCollectorUnit id="mov4#opm1#icu5" gr:x="-105" gr:y="150" linkOrder="ln20 ln21">
+      <OKLink id="mov4#opm1#icu5#oln4" name="OKFlow4" to="mov4#opm1#inn1">
+        <LinkParameter id="mov4#opm1#icu5#oln4#par3" name="id_param_Input" source="mov4#opm1#icu5#icp4" target="mov4#opm1#inn1.isnotnull"/>
+      </OKLink>
+      <InputCollectorParameter id="mov4#opm1#icu5#icp4" name="id_param"/>
+      <InputCollectorParameter id="mov4#opm1#icu5#icp5" name="name_param"/>
+      <Link id="mov4#opm1#icu5#ln20" name="Flow20" to="mov4#opm1#cru2" type="transport" validate="true" gr:bendpoints="207,-96,-228,-16">
+        <LinkParameter id="mov4#opm1#icu5#ln20#par4" name="id_param_id" source="mov4#opm1#icu5#icp4" target="mov4#opm1#cru2.ent1#att1"/>
+        <LinkParameter id="mov4#opm1#icu5#ln20#par5" name="name_param_name" source="mov4#opm1#icu5#icp5" target="mov4#opm1#cru2.ent1#att2"/>
+      </Link>
+      <Link id="mov4#opm1#icu5#ln21" name="Flow21" to="mov4#opm1#mfu1" type="transport" validate="true" gr:bendpoints="205,106,-240,36">
+        <LinkParameter id="mov4#opm1#icu5#ln21#par7" name="id_param_KeyCondition3 [id]" source="mov4#opm1#icu5#icp4" target="mov4#opm1#mfu1#su3#kcond3.ent1#att1"/>
+        <LinkParameter id="mov4#opm1#icu5#ln21#par8" name="name_param_name" source="mov4#opm1#icu5#icp5" target="mov4#opm1#mfu1.ent1#att2"/>
+      </Link>
+    </InputCollectorUnit>
+    <CreateUnit gr:x="385" gr:y="70" id="mov4#opm1#cru2" name="crear playlist" entity="ent1">
+      <OKLink id="mov4#opm1#cru2#oln6" name="OKFlow6" to="mov4#opm1#okcu2" automaticCoupling="true"/>
+      <KOLink id="mov4#opm1#cru2#kln5" name="KOFlow5" to="mov4#opm1#kocu2">
+        <LinkParameter id="mov4#opm1#cru2#kln5#par23" name="Error al crear la playlist_Error crear" sourceValue="Error al crear la playlist" target="mov4#opm1#kocu2#ocp1"/>
+      </KOLink>
+    </CreateUnit>
+    <OKCollectorUnit gr:x="620" gr:y="70" id="mov4#opm1#okcu2" name="OK Port2"/>
+    <KOCollectorUnit gr:x="620" gr:y="235" id="mov4#opm1#kocu2" name="KO Port2">
+      <OutputCollectorParameter id="mov4#opm1#kocu2#ocp1" name="Error crear"/>
+    </KOCollectorUnit>
+    <ModifyUnit gr:x="380" gr:y="215" id="mov4#opm1#mfu1" name="Actualizar playlist" entity="ent1">
+      <Selector id="mov4#opm1#mfu1#su3" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov4#opm1#mfu1#su3#kcond3" name="KeyCondition3" predicate="in" implied="false"/>
+      </Selector>
+      <KOLink id="mov4#opm1#mfu1#kln6" name="KOFlow6" to="mov4#opm1#kocu2">
+        <LinkParameter id="mov4#opm1#mfu1#kln6#par22" name="Error al actualizar la playlist_Error crear" sourceValue="Error al actualizar la playlist" target="mov4#opm1#kocu2#ocp1"/>
+      </KOLink>
+      <OKLink id="mov4#opm1#mfu1#oln7" name="OKFlow7" to="mov4#opm1#okcu2" automaticCoupling="true"/>
+    </ModifyUnit>
+    <IsNotNullUnit gr:x="180" gr:y="165" id="mov4#opm1#inn1" name="ExistePlayList?" emptyStringAsNull="true">
+      <OKLink id="mov4#opm1#inn1#oln5" name="OKFlow5" to="mov4#opm1#mfu1" automaticCoupling="true"/>
+      <KOLink id="mov4#opm1#inn1#kln4" name="KOFlow4" to="mov4#opm1#cru2" automaticCoupling="true"/>
+    </IsNotNullUnit>
+  </OperationUnits>
+</OperationModule>

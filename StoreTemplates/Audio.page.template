@@ -1,0 +1,114 @@
+#?delimiters [%, %], [%=, %]
+[%setHTMLOutput()%]
+<wr:Page type="HTML4_Transitional"/>
+<wr:Resources types="jspdeclaration"/>
+<%@ page contentType="text/html; charset=UTF-8"%> 
+<webratio:Page page="<wr:Id context="page"/>"/>
+<html>
+<head>
+  <title><wr:Label context="page"/></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <wr:Resources/>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      text-align: center;
+      margin: 50px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    audio {
+      width: 80%;
+      max-width: 400px;
+      margin-top: 20px;
+    }
+    
+    img {
+      max-width: 80%;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    
+    button {
+      background-color: #4285f4;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    // Function to get URL parameters by name
+    function getParameters() {
+      var url = window.location.href;
+      var queryString = url.split('?')[1];
+      var params = {};
+      
+      if (queryString) {
+        var pairs = queryString.split('&');
+        for (var i = 0; i < pairs.length; i++) {
+          var pair = pairs[i].split('=');
+          params[pair[0]] = pair[1];
+        }
+      }
+
+      return params;
+    }
+
+    // Function to set audio source based on URL parameter
+    function setAudioSource() {
+      var params = getParameters();
+      
+      var audioElement = document.getElementById('audioPlayer');
+      var imgElement = document.getElementById('albumCover');
+      var titleElement = document.getElementById('songTitle');
+      
+      // Get values based on their order in the URL
+      var values = Object.values(params);
+
+      // Choose variables based on their order in the URL
+      var titleVar = values[0];
+      var mp3Var = values[1];
+      var artistVar = values[2];
+      
+      	//var imgElement = document.getElementById('albumCover');
+      	imgElement.src = 'http://85.215.75.249/music/'+mp3Var + '.jpg';
+        //var audioElement = document.getElementById('audioPlayer');
+        audioElement.src = 'http://85.215.75.249/music/'+mp3Var + '.mp3';
+        
+        //var titleElement = document.getElementById('songTitle');
+        titleElement.innerText = titleVar + " - " + artistVar || 'Unknown Title';
+      
+    }
+    
+    function goBack() {
+      window.history.back();
+    }
+
+    // Call the setAudioSource function when the page loads
+    window.onload = setAudioSource;
+  </script>
+</head>
+<body>
+<h2 id="songTitle">Audio Player</h2>
+<img src="" alt="Album Cover" id="albumCover">
+<br>
+<audio controls id="audioPlayer">
+  Your browser does not support the audio element.
+</audio>
+<br>
+<button onclick="goBack()">Return</button>
+<wr:PageForm>
+
+<wr:Grid/>
+
+</wr:PageForm>
+</body>
+</html>

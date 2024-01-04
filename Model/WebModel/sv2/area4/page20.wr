@@ -1,0 +1,60 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv2#area4#page20" name="Artistas" gr:x="20" gr:y="535" landmark="true">
+  <ContentUnits>
+    <PowerIndexUnit id="sv2#area4#page20#pwu6" name="Artistas obtenidos" linkOrder="sv2#area4#page20#pwu6#ln30" gr:x="255" gr:y="0" sortable="true" checkable="false" useCountQuery="false" entity="ent3" displayAttributes="ent3#att8" customDescriptor="false">
+      <Selector id="sv2#area4#page20#pwu6#su13" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv2#area4#page20#pwu6#su13#acond6" name="name_con_artist" predicate="eq" booleanOperator="or" implied="false" attributes="ent3#att8"/>
+      </Selector>
+      <Link id="sv2#area4#page20#pwu6#ln30" name="Mostrar &#225;lbumes" to="sv2#area4#page20#pwu7" type="normal" validate="true">
+        <LinkParameter id="sv2#area4#page20#pwu6#ln30#par59" name="id_AttCondition12" source="data[].ent3#att7" target="sv2#area4#page20#pwu7#su14#acond7"/>
+      </Link>
+    </PowerIndexUnit>
+    <PowerIndexUnit id="sv2#area4#page20#pwu7" name="&#193;lbumes" linkOrder="sv2#area4#page20#pwu7#ln31" gr:x="0" gr:y="0" sortable="true" checkable="false" useCountQuery="false" entity="ent4" displayAttributes="ent4#att10">
+      <Selector id="sv2#area4#page20#pwu7#su14" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv2#area4#page20#pwu7#su14#acond7" name="AttCondition12" predicate="eq" booleanOperator="or" implied="false" attributes="rel4#role7.ent3#att7"/>
+      </Selector>
+      <Link id="sv2#area4#page20#pwu7#ln31" name="Ver canciones" to="sv2#area4#page21#hinu5" type="normal" validate="true">
+        <LinkParameter id="sv2#area4#page20#pwu7#ln31#par60" name="name_name_con_album [&#193;lbumes obtenidos]" source="data[].ent4#att10" target="sv2#area4#page21#hinu5#su15#acond8"/>
+      </Link>
+    </PowerIndexUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#area4#page20#pwu6">
+          <layout:Attribute attribute="ent3#att8"/>
+          <layout:Link link="sv2#area4#page20#pwu6#ln30"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#area4#page20#pwu7">
+          <layout:Attribute attribute="ent4#att10"/>
+          <layout:Link link="sv2#area4#page20#pwu7#ln31"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

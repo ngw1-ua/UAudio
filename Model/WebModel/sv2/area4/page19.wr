@@ -1,0 +1,128 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv2#area4#page19" name="B&#250;squeda" landmark="true" gr:x="510" gr:y="535">
+  <ContentUnits>
+    <EntryUnit id="sv2#area4#page19#enu12" name="Busca una canci&#243;n" linkOrder="sv2#area4#page19#enu12#ln27" gr:x="270" gr:y="0">
+      <Field id="sv2#area4#page19#enu12#fld11" name="Nombre" type="string" modifiable="true"/>
+      <Link id="sv2#area4#page19#enu12#ln27" name="Buscar" to="sv2#area4#page18#pwu5" type="normal" validate="true">
+        <LinkParameter id="sv2#area4#page19#enu12#ln27#par56" name="Nombre_nombre_con" source="sv2#area4#page19#enu12#fld11" target="sv2#area4#page18#pwu5#su12#acond5"/>
+      </Link>
+    </EntryUnit>
+    <MultiMessageUnit id="sv2#area4#page19#mssu12" name="Bienvenidx a la pesta&#241;a de b&#250;squeda" gr:x="150" gr:y="95">
+      <Message xml:space="preserve">En esta pesta&#241;a podr&#225;s buscar canciones, artistas o &#225;lbumes</Message>
+    </MultiMessageUnit>
+    <EntryUnit id="sv2#area4#page19#enu13" name="Busca un &#225;lbum" linkOrder="sv2#area4#page19#enu13#ln28" gr:x="115" gr:y="0">
+      <Field id="sv2#area4#page19#enu13#fld12" name="Nombre" type="string" modifiable="true"/>
+      <Link id="sv2#area4#page19#enu13#ln28" name="Buscar" to="sv2#area4#page21#hinu5" type="normal" validate="true">
+        <LinkParameter id="sv2#area4#page19#enu13#ln28#par57" name="Nombre_name_con_album [&#193;lbumes obtenidos]" source="sv2#area4#page19#enu13#fld12" target="sv2#area4#page21#hinu5#su15#acond8"/>
+      </Link>
+    </EntryUnit>
+    <EntryUnit id="sv2#area4#page19#enu14" name="Busca un artista" linkOrder="sv2#area4#page19#enu14#ln29" gr:x="0" gr:y="70">
+      <Link id="sv2#area4#page19#enu14#ln29" name="Buscar" to="sv2#area4#page20#pwu6" type="normal" validate="true">
+        <LinkParameter id="sv2#area4#page19#enu14#ln29#par58" name="Nombre_name_con_artist" source="sv2#area4#page19#enu14#fld13" target="sv2#area4#page20#pwu6#su13#acond6"/>
+      </Link>
+      <Field id="sv2#area4#page19#enu14#fld13" name="Nombre" type="string" modifiable="true"/>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#area4#page19#mssu12"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#area4#page19#enu12">
+          <layout:Link link="sv2#area4#page19#enu12#ln27"/>
+          <layout:Field field="sv2#area4#page19#enu12#fld11"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#area4#page19#enu13">
+          <layout:Field field="sv2#area4#page19#enu13#fld12"/>
+          <layout:Link link="sv2#area4#page19#enu13#ln28"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#area4#page19#enu14">
+          <layout:Link link="sv2#area4#page19#enu14#ln29"/>
+          <layout:Field field="sv2#area4#page19#enu14#fld13"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

@@ -1,0 +1,23 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="215" gr:y="280" id="mov4#opm2" name="Eliminar playlist">
+  <OperationUnits>
+    <InputCollectorUnit id="mov4#opm2#icu6" gr:x="-70" gr:y="130">
+      <InputCollectorParameter id="mov4#opm2#icu6#icp3" name="id_param"/>
+      <OKLink id="mov4#opm2#icu6#oln8" name="OKFlow8" to="mov4#opm2#dlu1">
+        <LinkParameter id="mov4#opm2#icu6#oln8#par27" name="id_param_KeyCondition2 [id]" source="mov4#opm2#icu6#icp3" target="mov4#opm2#dlu1#su2#kcond2.ent1#att1"/>
+      </OKLink>
+    </InputCollectorUnit>
+    <DeleteUnit gr:x="290" gr:y="125" id="mov4#opm2#dlu1" name="Delete1" entity="ent1">
+      <Selector id="mov4#opm2#dlu1#su2" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="mov4#opm2#dlu1#su2#kcond2" name="KeyCondition2" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="mov4#opm2#dlu1#oln1" name="OKFlow1" to="mov4#opm2#okcu1" automaticCoupling="true"/>
+      <KOLink id="mov4#opm2#dlu1#kln1" name="KOFlow1" to="mov4#opm2#kocu1">
+        <LinkParameter id="mov4#opm2#dlu1#kln1#par24" name="Error al eliminar la playlist_Error borrar" sourceValue="Error al eliminar la playlist" target="mov4#opm2#kocu1#ocp2"/>
+      </KOLink>
+    </DeleteUnit>
+    <OKCollectorUnit gr:x="505" gr:y="45" id="mov4#opm2#okcu1" name="OK Port1"/>
+    <KOCollectorUnit gr:x="505" gr:y="180" id="mov4#opm2#kocu1" name="KO Port1">
+      <OutputCollectorParameter id="mov4#opm2#kocu1#ocp2" name="Error borrar"/>
+    </KOCollectorUnit>
+  </OperationUnits>
+</OperationModule>

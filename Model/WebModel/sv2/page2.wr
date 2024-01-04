@@ -1,0 +1,66 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv2#page2" name="Home" landmark="true" layout:pageLayout="PureStyle/Home" gr:x="545" gr:y="385">
+  <ContentUnits>
+    <IndexUnit id="sv2#page2#inu1" name="Top Canciones" gr:x="0" gr:y="0" entity="ent2" displayAttributes="ent2#att3 count(rel2#role4.ent1#att1) rel3#role5.ent3#att8" maxResults="10" linkOrder="sv2#page2#inu1#ln1">
+      <Selector id="sv2#page2#inu1#su5" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv2#page2#inu1#su5#acond1" name="MINIMO" predicate="gt" booleanOperator="or" implied="false" attributes="count(rel2#role4.ent1#att1)" value="0"/>
+      </Selector>
+      <SortAttribute attribute="count(rel2#role4.ent1#att1)" order="descending"/>
+      <Link id="sv2#page2#inu1#ln1" name="Flow1" to="sv2#page28" type="normal" validate="true">
+        <LinkParameter id="sv2#page2#inu1#ln1#par12" name="id_songID" source="data[].ent2#att3" targetVariable="sv2#page28#var5"/>
+        <LinkParameter id="sv2#page2#inu1#ln1#par13" name="name_songName" source="data[].ent2#att4" targetVariable="sv2#page28#var7"/>
+        <LinkParameter id="sv2#page2#inu1#ln1#par17" name="CancionToArtistas.name_artist" source="data[].rel3#role5$ent3#att8" targetVariable="sv2#page28#var6"/>
+      </Link>
+    </IndexUnit>
+    <IndexUnit id="sv2#page2#inu2" name="Novedades" gr:x="70" gr:y="135" entity="ent2" displayAttributes="ent2#att4 rel3#role5.ent3#att8" maxResults="10" linkOrder="sv2#page2#inu2#ln3">
+      <SortAttribute attribute="ent2#att3" order="descending"/>
+      <Link id="sv2#page2#inu2#ln3" name="Flow3" to="sv2#page28" type="normal" validate="true">
+        <LinkParameter id="sv2#page2#inu2#ln3#par14" name="id_songID" source="data[].ent2#att3" targetVariable="sv2#page28#var5"/>
+        <LinkParameter id="sv2#page2#inu2#ln3#par15" name="name_songName" source="data[].ent2#att4" targetVariable="sv2#page28#var7"/>
+        <LinkParameter id="sv2#page2#inu2#ln3#par16" name="CancionToArtistas.name_artist" source="data[].rel3#role5$ent3#att8" targetVariable="sv2#page28#var6"/>
+      </Link>
+    </IndexUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#page2#inu1" layout:unitLayout="PureStyle/TopCancionesSimpleList">
+          <layout:Link link="sv2#page2#inu1#ln1"/>
+          <layout:Attribute attribute="ent2#att3"/>
+          <layout:Attribute attribute="count(rel2#role4.ent1#att1)"/>
+          <layout:Attribute attribute="rel3#role5.ent3#att8"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#page2#inu2" layout:unitLayout="PureStyle/TopCancionesSimpleList">
+          <layout:Link link="sv2#page2#inu2#ln3"/>
+          <layout:Attribute attribute="ent2#att4"/>
+          <layout:Attribute attribute="rel3#role5.ent3#att8"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

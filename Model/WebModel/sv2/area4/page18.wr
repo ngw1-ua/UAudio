@@ -1,0 +1,58 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv2#area4#page18" name="Canciones" gr:x="510" gr:y="0" layout:style="PureStyle" linkVisibilityPolicy="always">
+  <ContentUnits>
+    <PowerIndexUnit id="sv2#area4#page18#pwu5" name="Canciones encontradas" linkOrder="sv2#area4#page18#pwu5#ln26 sv2#area4#page18#pwu5#ln43" gr:x="195" gr:y="0" sortable="true" checkable="false" useCountQuery="false" entity="ent2" displayAttributes="ent2#att4 rel5#role10.ent4#att10 rel3#role5.ent3#att8">
+      <Selector id="sv2#area4#page18#pwu5#su12" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv2#area4#page18#pwu5#su12#acond5" name="name_con_song" predicate="eq" booleanOperator="or" implied="false" attributes="ent2#att4"/>
+      </Selector>
+      <Link id="sv2#area4#page18#pwu5#ln26" name="&#9733;  " to="sv2#area4#page16#enu11" type="normal" validate="true">
+        <LinkParameter id="sv2#area4#page18#pwu5#ln26#par55" name="id_id" source="data[].ent2#att3" target="sv2#area4#page16#enu11#fld10_slot"/>
+      </Link>
+      <Link id="sv2#area4#page18#pwu5#ln43" name="  &#9654;" to="sv2#page28" type="normal" validate="true">
+        <LinkParameter id="sv2#area4#page18#pwu5#ln43#par83" name="CancionToArtistas.name_artist" source="data[].rel3#role5$ent3#att8" targetVariable="sv2#page28#var6"/>
+        <LinkParameter id="sv2#area4#page18#pwu5#ln43#par84" name="id_songID" source="data[].ent2#att3" targetVariable="sv2#page28#var5"/>
+        <LinkParameter id="sv2#area4#page18#pwu5#ln43#par85" name="name_songName" source="data[].ent2#att4" targetVariable="sv2#page28#var7"/>
+      </Link>
+    </PowerIndexUnit>
+    <MultiMessageUnit id="sv2#area4#page18#mssu11" name="Error de inserci&#243;n" gr:x="0" gr:y="0"/>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#area4#page18#pwu5" layout:style="PureStyle">
+          <layout:Attribute attribute="ent2#att4"/>
+          <layout:Attribute attribute="rel5#role10.ent4#att10"/>
+          <layout:Attribute attribute="rel3#role5.ent3#att8"/>
+          <layout:Link link="sv2#area4#page18#pwu5#ln26"/>
+          <layout:Link link="sv2#area4#page18#pwu5#ln43"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#area4#page18#mssu11"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>
